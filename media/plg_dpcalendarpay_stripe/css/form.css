@@ -1,0 +1,130 @@
+.plg-dpcalendarpay-stripe__message {
+	display: none;
+}
+
+.plg-dpcalendarpay-stripe__button-bar {
+	margin-top: 10px;
+}
+
+.plg-dpcalendarpay-stripe__message_error {
+	color: #721c24;
+}
+
+.plg-dpcalendarpay-stripe__message_error .dp-form-input,
+.plg-dpcalendarpay-stripe__message_error .dp-select {
+	border: 1px solid #f5c6cb;
+}
+
+.plg-dpcalendarpay-stripe .dp-select {
+	max-width: 100px;
+}
+
+.plg-dpcalendarpay-stripe .dp-control__input-cvc {
+	max-width: 100px;
+}
+
+.plg-dpcalendarpay-stripe .dp-heading {
+	clear: both;
+	margin-bottom: 1rem;
+}
+
+.plg-dpcalendarpay-stripe .dp-heading_small {
+	border-bottom: none;
+}
+
+.plg-dpcalendarpay-stripe .dp-info-box {
+	padding: 8px 35px 8px 14px;
+	margin-bottom: 18px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: #c09853;
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.plg-dpcalendarpay-stripe .dp-info-box_success {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color: #3c763d;
+}
+
+.plg-dpcalendarpay-stripe .dp-info-box_error {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+}
+
+.plg-dpcalendarpay-stripe .dp-button-bar {
+	margin-bottom: 10px;
+}
+
+.plg-dpcalendarpay-stripe .dp-button {
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid #c0c0c0;
+	border-radius: 0.1rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	padding: 4px 10px;
+	margin: 3px 0;
+	color: #212529;
+	background-color: #fefefe;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.plg-dpcalendarpay-stripe .dp-button:disabled,
+.plg-dpcalendarpay-stripe .dp-button[disabled] {
+	background-color: #cccccc;
+	color: #666666;
+}
+
+.plg-dpcalendarpay-stripe .dp-control {
+	overflow: auto;
+}
+
+.plg-dpcalendarpay-stripe .dp-control__label, .plg-dpcalendarpay-stripe .control-group .control-label {
+	float: left;
+	width: 160px;
+	padding-top: 5px;
+	text-align: left;
+}
+
+.plg-dpcalendarpay-stripe .dp-control__input, .plg-dpcalendarpay-stripe .control-group .controls {
+	margin-left: 180px;
+}
+
+.plg-dpcalendarpay-stripe .control-group .form-text {
+	display: none;
+}
+
+@media screen and (max-width: 640px) {
+	.plg-dpcalendarpay-stripe .dp-control__label, .plg-dpcalendarpay-stripe .control-group .control-label, .plg-dpcalendarpay-stripe .dp-control__input, .plg-dpcalendarpay-stripe .control-group .controls {
+		width: 100%;
+		margin-left: 0;
+	}
+	.plg-dpcalendarpay-stripe .control-group control-label, .plg-dpcalendarpay-stripe .control-group controls {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+.plg-dpcalendarpay-stripe .dp-form-input {
+	width: 100%;
+	min-height: 28px;
+	-webkit-box-sizing: border-box;
+	/* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;
+	/* Firefox, other Gecko */
+	box-sizing: border-box;
+	/* Opera/IE 8+ */
+}
+
+/*# sourceMappingURL=form.css.map */
