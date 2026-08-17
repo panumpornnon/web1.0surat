@@ -1,0 +1,33 @@
+﻿สีม่วง =  #8D1F78, 
+rgba(141, 31, 120, 1)
+สีเหลือง = #e7cf19 , 
+rgb(231,207,25)
+
+แถวแสดงข้อมูลบุคลากร
+#f7f7f7
+
+สีเดิม
+Body 
+background color: rgb(255, 255, 255) ขาว
+text color: rgb(44, 46, 54) กรมท่า
+link color: rgb(44, 46, 54) กรมท่า
+link hover color: rgb(251, 121, 6) ส้ม
+
+Header
+background color: rgb(221, 244, 255) ฟ้าอ่อน
+text color: rgb(44, 46, 54) กรมท่า
+logo text color: rgb(251, 121, 6) ส้ม
+logo tag line color: rgb(44, 46, 54) กรมท่า
+
+Sticky Header
+Backgound Color: rgba(221, 244, 255, 0.958) ฟ้าอ่อน
+Link Color: rgb(44, 46, 54) กรมท่า
+Link Active Color: rgb(251, 121, 6) ส้ม
+Link Hover Color: rgb(251, 121, 6) ส้ม
+
+Main Menu
+Link color: กรมท่า
+Link Active Color:  ส้ม
+Link Hover Color: ส้ม
+
+Dropdown Menu

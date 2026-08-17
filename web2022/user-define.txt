@@ -1,0 +1,75 @@
+﻿64-10-09
+- slide index on pagebuilder
+- ปรับหมวดเมนู
+ลบเมนูการเผยแพร่ออกไป
+
+- แบ่งหมวดหมู่
+ใหม่
+> ทรัพยากร/เผยแพร่
+- ประกาศสมัครงาน (การเผยแพร่>ประกาศสมัครงาน)
+- เอกสารตรวจสอบภายใน (การเผยแพร่>เอกสารตรวจสอบภายใน)
+- การประเมินคุณธรรมและความโปร่งใส ITA (การเผยแพร่>การประเมินคุณธรรมและความโปร่งใส (ITA))
+- การประเมินประสิทธิภาพการปกครององค์กรส่วนท้องถิ่น (การเผยแพร่>การประเมินประสิทธิภาพการปกครององค์กรส่วนท้องถิ่น(LPA))
+- การจัดการความรู้ (การเผยแพร่>การจัดการความรู้)
+- ปฏิทินวิชาการและกิจกรรม (การเผยแพร่>ปฏิทินวิชาการและกิจกรรม)
+> วัฒนธรรมและการท่องเที่ยว
+> บริการประชาชน
+- เอกสารเผยแพร่  (การเผยแพร่>เอกสารเผยแพร่)
+- ระเบียบกฎหมายเพื่อประชาชน (การเผยแพร่>ระเบียบกฎหมายเพื่อประชาชน)
+
+
+
++++++++++++++++++++++++++++++++
+images-thumb+full : {root}\images\stories\flexicontent\
+file- : {root}\components\com_flexicontent\uploads\
+
+table full width
+C:\Program Files\Ampps\www\web\components\com_flexicontent\templates\default-table-list-type\css\category.css
+แก้ไขขนาดตาราง
+table.adminlist {
+	color: #555555;
+	width: 100%; //เพิ่มด้วยตนเอง บรรทัด 43
+}
+
++++++++++++++++++++++++++++++
+64-03-18
+new warpter layout
+news.css //.news.mod_flexicontent_wrapper .fcitem_title
+..web\modules\mod_flexicontent\tmpl\news
+...
+.news.mod_flexicontent_wrapper .fcitem_title {
+	/*text-shadow: 1px 1px 1px #000000;*/ //comment this
+	height: 2.4em;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 1px 4px;
+	margin: 2px 0px;
+	/*border: 1px dashed #bbbbbb;*/
+}
+...
++++++++++++++++++++++++++++++++++
+64-04-07
+no shadow title link
+carousel.css
+...\web\www\web\modules\mod_flexicontent\tmpl\carousel\carosel.css
+...
+.carousel.mod_flexicontent_wrapper .fcitem_title {
+	/*text-shadow: 1px 1px 1px #000000;*/ //comment this
+	height: 2.4em;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 1px 4px;
+	margin: 2px 0px;
+	/*border: 1px dashed #bbbbbb;*/
+...
++++++++++++++++++++++++++++++++++++
+carousel.css
+...\web\www\web\modules\mod_flexicontent\tmpl\carousel\carosel.css
+.carousel.mod_flexicontent_wrapper .fc_overlayed .fcitem_title a {
+	/*text-shadow: 1px 1px 2px #000000, -1px -1px #000, 1px 1px #000000;*/
+	text-shadow: 1px 1px 1px #000000; //comment this
+	
+}
+
+++++++
+rgb(231, 207, 25)
