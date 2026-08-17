@@ -1,0 +1,32 @@
+00-src/
+
+# ข้ามโฟลเดอร์สื่อและรูปภาพที่มีขนาดใหญ่
+images/**/*
+
+# ยกเว้นไฟล์ทั้งหมดในโฟลเดอร์ 2567
+#images/2567/*
+
+# แต่ไม่ยกเว้นไฟล์ .gitkeep (เพื่อรักษาโครงสร้างโฟลเดอร์ไว้บน GitHub)
+!images/**/.gitkeep
+
+
+
+# ข้ามโฟลเดอร์แคชและไฟล์ชั่วคราว
+cache/
+administrator/cache/
+templates/yootheme/cache
+tmp/
+
+# ข้ามโฟลเดอร์ล็อกของระบบ
+installation/
+logs/
+administrator/logs/
+
+# ข้ามไฟล์ตั้งค่าส่วนตัว (ความปลอดภัย)
+configuration.php
+
+htaccess - CopyX.txt
+htaccess.txt
+htaccessA.txt
+htaccess-backup.txt
+htaccessTest64.txt
