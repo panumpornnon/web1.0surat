@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" method="upgrade">
+	<name>jFontSize</name>
+	<creationDate>May 9, 2013</creationDate>
+	<author>Matt Thomas</author>
+	<authorUrl>http://betweenbrain.com</authorUrl>
+	<copyright>Copyright (C) 2013 Matt Thomas. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>MOD_JFONTSIZE_DESC</description>
+	<files>
+		<filename>mod_jfontsize.xml</filename>
+		<filename module="mod_jfontsize">mod_jfontsize.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_jfontsize.ini</language>
+	</languages>
+
+	<media destination="jfontsize" folder="media">
+	 <folder>js</folder>
+	 <folder>css</folder>
+	 <file>index.html</file>
+	</media>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="targetElement"
+						type="text"
+						default="body"
+						label="MOD_JFONTSIZE_TARGET_ELEMENT_LABEL"
+						description="MOD_JFONTSIZE_TARGET_ELEMENT_DESC"/>
+				<field
+						name="btnPlusMaxHits"
+						type="text"
+						default="10"
+						label="MOD_JFONTSIZE_PLUS_MAX_HITS_LABEL"
+						description="MOD_JFONTSIZE_PLUS_MAX_HITS_DESC"/>
+				<field
+						name="btnMinusMaxHits"
+						type="text"
+						default="10"
+						label="MOD_JFONTSIZE_MINUS_MAX_HITS_LABEL"
+						description="MOD_JFONTSIZE_MINUS_MAX_HITS_DESC"/>
+				<field
+						name="sizeChange"
+						type="text"
+						default="1"
+						label="MOD_JFONTSIZE_SIZE_CHANGE_LABEL"
+						description="MOD_JFONTSIZE_SIZE_CHANGE_DESC"/>
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
