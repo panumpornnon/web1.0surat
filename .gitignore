@@ -8,11 +8,13 @@ images/**/*
 
 # แต่ไม่ยกเว้นไฟล์ .gitkeep (เพื่อรักษาโครงสร้างโฟลเดอร์ไว้บน GitHub)
 !images/**/.gitkeep
+!cache/**/.gitkeep
 
 
 
 # ข้ามโฟลเดอร์แคชและไฟล์ชั่วคราว
 cache/
+00_no_upload_installation/
 administrator/cache/
 templates/yootheme/cache
 tmp/
