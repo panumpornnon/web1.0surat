@@ -1,0 +1,307 @@
+# @version     $Id: en-GB.com_jevents.ini 1520 2009-07-28 10:24:10Z geraint $
+# @package     JEvents
+# @copyright   Copyright (C) 2006-2008 JEvents Project Group
+# @licence     GNU/GPLv2, see http://www.gnu.org/licenses/gpl-2.0.html
+# @link        http://www.jevents.net
+# @encoding    utf-8 - No BOM
+
+# new 1.4.0
+# format of repeat text: 1 = follow english word order
+JEV_REPEAT_GRAMMAR=1
+
+# used for ical code from 1.5 onwards
+JEV_EVENT_CHOOSE_ICAL=กรุณาเลือกปฏิทิน
+
+# used for colorpicker
+JEV_NO_COLOR=ไม่มีสี
+JEV_COLOR_PICKER=ตัวดูดสี
+
+# compatibility constants(from Joomla 1.x)
+JEV_SEARCH_TITLE=ค้นหา
+JEV_E_EDIT=แก้ไข
+JEV_E_WARNTITLE=ไม่มีหัวเรื่อง
+JEV_E_WARNCAT=ไม่มีประเภท
+JEV_E_STATE=สถานะ
+JEV_E_HITS=ผู้ชม
+JEV_E_CREATED=สร้าง
+JEV_E_LAST_MOD=แก้ไขล่าสุด
+JEV_CMN_PRINT=พิมพ์
+JEV_CMN_SELECT=เลือก
+
+# common
+JEV_TIME=เวลา
+JEV_CLICK_TO_OPEN_EVENT=กดเพื่อเปิดดูกิจกรรม
+JEV_UNPUBLISHED=** ไม่เผยแพร่ **
+JEV_DESCRIPTION=รายละเอียด
+JEV_EMAIL_TO_AUTHOR=อีเมลไปยังผู้เขียน
+JEV_MAIL_TO_ADMIN=กิจกรรมส่งมาจาก [ %s ] เมื่อ [ %s ]
+JEV_KEYWORD_NOT_VALID=คำสำคัญไม่ถูกต้อง
+JEV_EVENT_CALENDAR=ปฏิทินกิจกรรม
+JEV_EVENT_CALENDAR=ปฏิทินกิจกรรม
+
+# modul
+JEV_ERR_NO_MOD_CAL=ปฏิทินกิจกรรม\n<br />ต้องติดตั้งคอมโพแนนท์ก่อนใช้งานโมดูลนี้
+JEV_CLICK_TOSWITCH_DAY=ไปยังปฏิทิน - วันนี้
+JEV_CLICK_TOSWITCH_MON=ไปยังปฏิทิน - เดือนนี้
+JEV_CLICK_TOSWITCH_YEAR=ไปยังปฏิทิน - ปีนี้
+JEV_CLICK_TOSWITCH_PY=ไปยังปฏิทิน - ปีที่แล้ว
+JEV_CLICK_TOSWITCH_PM=ไปยังปฏิทิน - เดือนที่แล้ว
+JEV_CLICK_TOSWITCH_NM=ไปยังปฏิทิน - เดือนหน้า
+JEV_CLICK_TOSWITCH_NY=ไปยังปฏิทิน- ปีหน้า
+
+JEV_CLICK_TOCOMPONENT=ดูปฏิทินเต็มหน้า
+
+# navTableNext
+JEV_NAV_TN_FIRST_LIST=รายการแรก
+JEV_NAV_TN_PREV_LIST=รายการที่แล้ว
+JEV_NAV_TN_NEXT_LIST=รายการต่อไป
+JEV_NAV_TN_LAST_LIST=รายการสุดท้าย
+
+# calendar monthly display
+JEV_FIRST_SINGLE_DAY_EVENT=กิจกรรมเดียว
+JEV_FIRST_DAY_OF_MULTIEVENT=วันแรกของหลายกิจกรรม
+JEV_LAST_DAY_OF_MULTIEVENT=วันสุดท้ายของหลายกิจกรรม
+JEV_MULTIDAY_EVENT=หลายกิจกรรม
+
+# Month names
+JEV_JANUARY=มกราคม
+JEV_FEBRUARY=กุมภาพันธ์
+JEV_MARCH=มีนาคม
+JEV_APRIL=เมษายน
+JEV_MAY=พฤษภาคม
+JEV_JUNE=มิถุนายน
+JEV_JULY=กรกฎาคม
+JEV_AUGUST=สิงหาคม
+JEV_SEPTEMBER=กันยายน
+JEV_OCTOBER=ตุลาคม
+JEV_NOVEMBER=พฤศจิกายน
+JEV_DECEMBER=ธันวาคม
+
+# Short day names
+JEV_SUN=อา.
+JEV_MON=จ.
+JEV_TUE=อ.
+JEV_WED=พ.
+JEV_THU=พฤ.
+JEV_FRI=ศ.
+JEV_SAT=ส.
+
+# Day names
+JEV_SUNDAY=อาทิตย์
+JEV_MONDAY=จันทร์
+JEV_TUESDAY=อังคาร
+JEV_WEDNESDAY=พุธ
+JEV_THURSDAY=พฤหัสบดี
+JEV_FRIDAY=ศุกร์
+JEV_SATURDAY=เสาร์
+
+# Super short Days names - character
+JEV_SUNDAY_CHR=อา.
+JEV_MONDAY_CHR=จ.
+JEV_TUESDAY_CHR=อ.
+JEV_WEDNESDAY_CHR=พ.
+JEV_THURSDAY_CHR=พฤ.
+JEV_FRIDAY_CHR=ศ.
+JEV_SATURDAY_CHR=ส.
+
+# Repeat type
+JEV_ALLDAYS=ทุกวัน
+JEV_EVERY_N_DAYS=ทุก %s วัน
+JEV_EACHWEEK=ทุกสัปดาห์
+JEV_EVERY_N_WEEKS=ทุก %s สัปดาห์
+JEV_EACHWEEKPAIR=ทุกสัปดาห์คู่
+JEV_EACHWEEKIMPAIR=ทุกสัปดาห์คี่
+JEV_EACHMONTH=ทุกเดือน
+JEV_EVERY_N_MONTHS=ทุก %s เดือน
+JEV_EACHYEAR=ทุกปี
+JEV_EVERY_N_YEARS=ทุก %s ปี
+JEV_ONLYDAYS=เฉพาะวันที่เลือก
+JEV_EACH=แต่ละ
+JEV_EACHOF=ของแต่ละ
+JEV_ENDMONTH=สิ้นเดือน
+JEV_UNTIL=จนถึง
+JEV_COUNTREPEATS=สำหรับทั้งหมดของ %s การเกิดซ้ำ
+
+# Repeat days
+JEV_BYDAYNUMBER=โดยวันที่
+
+# Repeat Exception
+JEV_REPEATEXCEPTION=การเกิดซ้ำนี้ถูกยกเว้นจากรูปแบบการเกิดซ้ำปรกติ
+
+# User type
+JEV_ANONYME=นิรนาม
+
+# Post
+JEV_ACT_ADDED=ขอบคุณสำหรับการส่งมอบของคุณ - เราจะรับไว้พิจารณา!
+JEV_ACT_MODIFIED=แก้ไขกิจกรรมแล้ว
+JEV_ACT_PUBLISHED=เผยแพร่กิจกรรมแล้ว
+JEV_ACT_DELETED=ลบกิจกรรมแล้ว!
+JEV_NOPERMISSION=คุณไม่ได้รับอนุญาตให้เข้าใช้บริการนี้ !
+
+JEV_MAIL_ADDED=ส่งมอบใหม่เมื่อ
+JEV_MAIL_MODIFIED=แก้ไขใหม่เมื่อ
+
+# Presentation
+JEV_BY=โดย
+JEV_FROM=จาก
+JEV_TO=ถึง
+JEV_ARCHIVE=Archives
+JEV_WEEK=สัปดาห์
+JEV_NO_EVENTS=ไม่มีกิจกรรม
+JEV_NO_EVENTFOR=ไม่มีกิจกรรมสำหรับ
+JEV_NO_EVENTFORTHE=ไม่มีกิจกรรมสำหรับ
+JEV_THIS_DAY=วันนี้
+JEV_THIS_MONTH=เดือนนี้
+JEV_LAST_MONTH=เดือนที่แล้ว
+JEV_NEXT_MONTH=เดือนหน้า
+JEV_EVENTSFOR=กิจกรรมสำหรับ
+JEV_SEARCHRESULTS=ผลการค้นหาสำหรับคำค้น
+JEV_EVENTSFORTHE=กิจกรรมสำหรับ
+JEV_REP_DAY=วัน
+JEV_REP_WEEK=สัปดาห์
+JEV_REP_WEEKPAIR=ทุกสัปดาห์ที่สอง
+JEV_REP_WEEKIMPAIR=ทุกสัปดาห์ที่สาม
+JEV_REP_MONTH=เดือน
+JEV_REP_YEAR=ปี
+JEV_REP_NOEVENTSELECTED=กรุณาเลือกกิจกรรมก่อน
+
+# Navigation
+JEV_VIEWTODAY=ดูวันปัจจุบัน
+JEV_VIEWTOCOME=กำลังจะเกิดขึ้นเดือนนี้
+JEV_VIEWBYDAY=ดูรายวัน
+JEV_VIEWBYCAT=ดูตามประเภท
+JEV_VIEWBYMONTH=ดูรายเดือน
+JEV_VIEWBYYEAR=ดูรายปี
+JEV_VIEWBYWEEK=ดูรายสัปดาห์
+JEV_JUMPTO=ข้ามไปยังเดือน
+JEV_BACK=กลับ
+JEV_CLOSE=ปิด
+JEV_PREVIOUSDAY=วันก่อนหน้า
+JEV_PREVIOUSWEEK=สัปดาห์ก่อนหน้า
+JEV_PREVIOUSMONTH=เดือนก่อนหน้า
+JEV_PREVIOUSYEAR=ปีก่อนหน้า
+JEV_NEXTDAY=วันถัดไป
+JEV_NEXTWEEK=สัปดาห์ถัดไป
+JEV_NEXTMONTH=เดือนถัดไป
+JEV_NEXTYEAR=ปีถัดไป
+
+# Administration
+JEV_ADMINPANEL=แผงควบคุม
+JEV_ADDEVENT=เพิ่มกิจกรรม
+JEV_MYEVENTS=กิจกรรมของคุณ
+JEV_DELETE=ลบ
+JEV_MODIFY=แก้ไข
+JEV_EVENT_PRIORITY=ระดับความสำคัญกิจกรรม
+
+# Form
+JEV_HELP=ระบบช่วยเหลือ
+
+JEV_CAL_TITLE=กิจกรรม
+JEV_ADD_TITLE=เพิ่ม
+JEV_MODIFY_TITLE=แก้ไข
+
+JEV_REPEAT_DISABLED=การเกิดซ้ำของกิจกรรมวันสิ้นสุดต้องอยู่หลังวันเริ่มต้นเท่านั้น กรุณากำหนดวันสิ้นสุดให้ถูกต้องก่อน
+JEV_EVENT_TITLE=เรื่อง
+JEV_EVENT_COLOR=สี
+JEV_EVENT_CATCOLOR=ใช้สีของประเภท
+JEV_EVENT_CATEGORY=ประเภท
+JEV_EVENT_CHOOSE_CATEG=กรุณาเลือกประเภท
+JEV_EVENT_ACTIVITY=ข้อมูลกิจกรรม
+JEV_EVENT_URLMAIL_INFO=สำหรับการเพิ่ม URL หรือที่อยู่อีเมล เพียงแค่เขียนแบบนี้ <br><u>http://www.mysite.com</u> or <u>mailto:my@mail.com</u>
+JEV_EVENT_ADRESSE=สถานที่
+JEV_EVENT_CONTACT=การติดต่อ
+JEV_EVENT_EXTRA=ข้อมูลเพิ่มเติม
+JEV_EVENT_AUTHOR_ALIAS=ผู้เขียน (นามแฝง)
+JEV_EVENT_STARTDATE=วันเริ่มต้น
+JEV_EVENT_ENDDATE=วันสิ้นสุด
+JEV_EVENT_STARTHOURS=ชั่วโมงเริ่มต้น
+JEV_EVENT_ENDHOURS=ชั่วโมงสิ้นสุด
+JEV_EVENT_STARTTIME=เวลาเริ่มต้น
+JEV_EVENT_ENDTIME=เวลาสิ้นสุด
+JEV_PUB_INFO=วันที่เผยแพร่
+JEV_EVENT_REPEATTYPE=รูปแบบการเกิดซ้ำ
+JEV_EVENT_REPEATDAY=วันเกิดซ้ำ
+JEV_EVENT_CHOOSE_WEEKDAYS=วันของสัปดาห์
+JEV_EVENT_PER=ต่อ
+JEV_EVENT_WEEKOPT=Week(s) of a month repeat type week
+
+JEV_SUBMITPREVIEW=แสดงตัวอย่าง
+JEV_SUBMITCANCEL=ยกเลิก
+JEV_SUBMITSAVE=บันทึก
+
+JEV_E_WARNWEEKS=กรุณาเลือกสัปดาห์
+JEV_E_WARNDAYS=กรุณาเลือกวัน
+
+# Admin
+JEV_EVENT_ALLCAT=ทุกประเภท
+JEV_EVENT_ACCESSLEVEL=ระดับการเข้าถึง
+JEV_EVENT_HITS=ผู้ชม
+JEV_EVENT_STATE=สถานะ
+JEV_EVENT_CREATED=สร้าง
+JEV_EVENT_NEWEVENT=เพิ่มเหตุการณ์ใหม่
+JEV_EVENT_MODIFIED=แก้ไขล่าสุด
+JEV_EVENT_NOTMODIFIED=ไม่ได้แก้ไข
+
+# Admin Module 
+SHOW UNPUBLISHED EVENTS?=แสดงกิจกรรมที่ไม่เผยแพร่?
+SHOW ONLY MY EVENTS?=แสดงเฉพาะกิจกรรมของคุณ?
+RESET=ตั้งค่าใหม่
+YES=ใช่
+NO=ไม่
+
+# dmcd aug 22/04  new warning alert for no specified activity in event entry
+JEV_WARNACTIVITY=Some sort of Activity description must be entered.
+
+JEV_LEGEND_ALL_CATEGORIES=ทุกประเภท ...
+JEV_LEGEND_ALL_CATEGORIES_DESC=แสดงกิจกรรมจากทุกประเภท
+
+JEV_FORM_HELP_COLOR=<tr><td width="110" align="left" valign="top"><b>สี</b></td><td>เลือกสีของพื้นหลังที่จะแสดงในมุมมองแบบเดือน ถ้าเลือกที่ checkbox ประเภท จะใช้สีเริ่มต้นของประเภทนั้น (กำหนดโดยผู้ดูแลระบบ) </td></tr>
+
+JEV_FORM_HELP=<tr><td align="left"><b>วันที่</b></td><td>เลือกวันเริ่มต้น และวันสิ้นสุดของกิจกรรมของคุณ</td></tr><tr><td align="left" valign="top"><b>เวลา</b></td><td>เลือกเวลาของวันของกิจกรรมของคุณ รูปแบบคือ <span style='color:blue;font-weight:bold;'>hh:mm {am|pm}</span>.<br/>สามารถเลือกรูปแบบเวลาได้ระหว่าง 12 หรือ 24 ช.ม.<br/><br/><b><i><span style='color:red;'>(ใหม่)</span></i> บันทึกย่อ</b> นั่นเป็นรูปแบบพิเศษสำหรับ <span style='color:red;font-weight:bold;'>กิจกรรมวันเดียวข้ามคืน</span> เช่นสำหรับกิจกรรมวันเดียว เริ่มต้นเมื่อ 19:00 และสิ้นสุดเมื่อ 3:00, วันเริ่มต้นและวันสิ้นสุด <b>จะต้อง</b> เป็นวันเดียวกัน และต้องกำหนดเป็นวันต่อเนื่องก่อนเที่ยงคืน</td></tr>
+JEV_FORM_HELP_EXTENDED=<tr><td align="left" valign="top" nowrap><b>Repeat Type</b></td><td colspan="2"></td></tr><tr><td colspan="2" align="left" valign="top"><table width="100%" border="0" cellspacing="2"> <tr> <td width="60" align="left" valign="top"><u>By Day</u></td> <td width="110" align="left" valign="top" class="frm_td_bydays"> <font color="#000000">Every Day<br/><i>(default)</i></font> </td> <td align="left" valign="top" class="frm_td_bydays"> <font color="#000000">Choose this option for a non-reoccurring single or multi-day event, with a new event occurrence for every day within the Start and End Date range</font> </td> </tr> <tr> <td width="60" rowspan="3" align="left" valign="top"><u>By Week</u></td> <td width="110" align="left" valign="top" class="frm_td_byweeks"> <font color="#000000"> Once Per Week </font> </td> <td align="left" valign="top" class="frm_td_byweeks"> <font color="#000000"> This option allow to choose the weekday of repeat <table border="0" width="100%" height="100%"><tr><td><b>Day number</b> for repeat type each 10/../2003</td></tr><tr><td><b>Day name</b> for repeat type each Monday</td></tr></table> </font> </td> </tr> <tr> <td width="110" align="left" valign="top" class="frm_td_byweeks"> <font color="#000000"> Multiple Week Days Per Week </font> </td> <td align="left" valign="top" class="frm_td_byweeks"> <font color="#000000">This option allow to choose on which week days your event will be visible.</font> </td> </tr> <tr> <td width="110" align="left" valign="top" class="frm_td_byweeks"> <font color="#000000"><i>Week of Month # <br>For 'Once per Week' and 'Multiple Days Per Week' options above</i></font></td> <td align="left" valign="top" class="frm_td_byweeks"> <font color="#000000"> <table border="0" width="100%" height="100%"> <tr><td><b>Week 1 :</b> 1st week of the month</td></tr> <tr><td><b>Week 2 :</b> 2nd week of the month</td></tr> <tr><td><b>Week 3 :</b> 3rd week of the month</td></tr> <tr><td><b>Week 4 :</b> 4th week of the month</td></tr> <tr><td><b>Week 5 :</b> 5th week of the month (if applicable)</td></tr> </table> </font> </td> </tr> <tr> <td width="60" rowspan="2" align="left" valign="top"><u>By Month</u></td> <td width="110" align="left" valign="top" class="frm_td_bymonth"> <font color="#000000">Once Per Month</font></td> <td align="left" valign="top" class="frm_td_bymonth"> <font color="#000000"> This option allow to choose the repeating Day of the Month <table border="0" width="100%" height="100%"><tr><td><b>Day number</b> for repeat type each 10/../2003</td></tr><tr><td><b>Day name</b> for repeat type each Monday</td></tr></table> </font> </td> </tr> <tr> <td width="110" align="left" valign="top" class="frm_td_bymonth"> <font color="#000000"> End of Each Month </font> </td> <td align="left" valign="top" class="frm_td_bymonth"> <font color="#000000"> The event is on the last day of each month independently of the day number, if that last day falls within the date range specified by the Start and End Dates for the event. </font> </td> </tr> <tr> <td width="60" rowspan="2" align="left" valign="top"><u>By Year</u></td> <td width="110" align="left" valign="top" class="frm_td_byyear"> <font color="#000000"> Once Per Year </font> </td> <td align="left" valign="top" class="frm_td_byyear"> <font color="#000000"> This option allow to choose a single day every Year <table border="0" width="100%" height="100%"><tr><td><b>Day number</b> for repeat type each 10/../2003</td></tr><tr><td><b>Day name</b> for repeat type each Monday</td></tr></table> </font> </td> </tr> </table> </td> </tr>
+
+JEV_PREVIOUSREPEAT=การเกิดซ้ำก่อนหน้า
+JEV_NEXTREPEAT=การเกิดซ้ำถัดไป
+
+JEV_RSS_DATE=%d %b %Y
+JEV_RSS_DATETIME=%d %b %Y %H:%M
+
+JEV_EMAIL_EVENT_TITLE=เรื่อง : %s
+JEV_EMAIL_EDIT_EVENT=แก้ไขกิจกรรมนี้ : %s
+JEV_MANAGE_EVENTS=จัดการกิจกรรมของคุณ : <a href="%s">จัดการกิจกรรม</a>
+
+SELECT CATEGORY=เลือกประเภท
+HELP=ระบบช่วยเหลือ
+
+WITH INSTANCES=ด้วยตัวอย่าง
+WHEN?=เมื่อ?
+ON OR AFTER?=ขณะนั้นหรือหลังจาก?
+BEFORE?=ก่อนหน้า?
+
+JEV_REPEATING_EVENT=การเกิดซ้ำของกิจกรรม
+EVENT SAVED UNDER REVIEW=กิจกรรมของคุณถูกบันทึก และจะได้รับการตรวจสอบ
+
+SUBSCRIBE TO RSS FEED=Subscribe to RSS Feed
+RSS FEED=RSS Feed
+INVALID CALENDAR STRUCTURE=The calendars are not setup correctly.  You will not be able to save this event as a result.  Please report to site administrator.
+
+JEV_SHOW_PAST=แสดงกิจกรรมที่ผ่านมาแล้ว?
+
+MONTHLY VIEW=มุมมองรายเดือน
+WEEKLY VIEW=มุมมองรายสัปดาห์
+DAILY VIEW=มุมมองรายวัน
+PRECEEDING WEEK=สัปดาห์ก่อน
+FOLLOWING WEEK=สัปดาห์ถัดไป
+PRECEEDING DAY=วันก่อน
+FOLLOWING DAY=วันถัดไป
+
+THIS EVENT HAS CHANGED - THIS OCCURANCE IS NOW THE CLOSEST TO THE DATE YOU SEARCHED FOR=This event has changed - this occurance is now the closest to the date you searched for
+SELECT ICAL (FROM RAW ICALS)=Select Ical (from raw icals)
+
+TIMELESS=timeless
+
+DELETE EVENT=ลบกิจกรรม
+ARE YOU SURE YOU WISH TO DELETE THIS EVENT AND ALL ITS REPEAT?=คุณแน่ใจหรือไม่ที่จะลบกิจกรรมนี้?
+ARE YOU SURE YOU WANT TO DELETE THIS RECURRENCE?=คุณแน่ใจหรือไม่ที่จะลบการเกิดซ้ำนี้?
+ARE YOU SURE YOU WISH TO DELETE THIS EVENT?=คุณแน่ใจหรือไม่ที่จะลบกิจกรรมนี้?
+ARE YOU SURE YOU WITH TO DELETE THIS EVENT AND ALL FUTURE REPEATS?=คุณแน่ใจหรือไม่ที่จะลบกิจกรรมและการเกิดซ้ำนี้?
