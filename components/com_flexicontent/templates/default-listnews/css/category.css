@@ -1,0 +1,166 @@
+body #flexicontent .fc_item_title,
+body #flexicontent .fc_item_title a {
+	color: inherit;
+	background-color: inherit;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-radius: 0px;
+}
+td.fc_title_col {
+	background-color: inherit !important;
+}
+table#adminListTableFCcategory th {
+	background: inherit !important;
+	color: inherit;
+}
+body table.adminlist tbody tr.row0:hover td,
+table.adminlist tbody tr.row1:hover td,
+table.adminlist tr:hover td.filtered_column {
+	background-color: inherit !important;
+}
+body table.adminlist tbody tr {
+	border-top: 0px solid #dadada !important;
+	text-align: inherit;
+}
+body #flexicontent .flexi.label,
+body #flexicontent .desc-title.label {
+	background-color: #999999;
+	color: #ffffff;
+	border-radius: 3px;
+	padding-top: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+	padding-bottom: 2px;
+}
+table.adminlist tbody tr.row0 td {
+	background: #ffffff;
+}
+table.adminlist tbody tr.row1 td {
+	background: #f7f7f7;
+}
+table.adminlist {
+	color: #555555;
+}
+table.adminlist {
+	color: #555555;
+	width: 100%;
+}
+.subcategorieslist {
+	margin: 0 0 1em;
+}
+#fc_alpha .btn.fc_alpha_index,
+#fc_alpha .btn.fc_alpha_index_sep {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.group {
+	overflow: auto !important;
+}
+.fc_item_title a {
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 16px;
+}
+.fc_title_row_box {
+	display: inline-block;
+	float: left;
+	max-width: 100%;
+	padding: 0%;
+	margin-left: 16px;
+}
+.fc_item_separator_row {
+	display: block;
+	clear: both;
+	height: 40px;
+	border: 0px solid;
+}
+.fields_Created {
+	background: #F5F5F8;
+	border-radius: 15px;
+	width: 50px;
+	text-align: center;
+	font-size: 14px;
+	height: 50px;
+	vertical-align: middle;
+	line-height: 24px;
+	padding: 10px;
+	color: #8D1F78;
+}
+.sectiontableentry {
+	background: #fff;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	padding: 0px 15px;
+}
+.fields-blockCreated {
+	display: inline-block;
+	padding: 15px;
+	vertical-align: middle;
+	height: 68px;
+	width: 70px;
+	float: left;
+}
+.fields-blockTitle {
+	display: table-cell;
+	padding: 15px;
+	vertical-align: middle;
+	height: 68px;
+	width: 93%;
+}
+table#adminListTableFCcategory {
+	display: none;
+}
+#flexicontent .catdescription .uk-nav-default>li.uk-active>a {
+	background: #8D1F78;
+	border-radius: 5px;
+	color: #fff;
+}
+#flexicontent .catdescription .uk-nav-default>li>a {
+	color: #600537;
+	background: #F5F5F8;
+	border-radius: 5px;
+	padding: 18px 20px;
+	font-size: 15px;
+}
+#flexicontent .catdescription .uk-subnav {
+	display: inline-flex;
+}
+input#adminForm_filter {
+	width: 260px;
+}
+.fcfile_total,
+hr.fcclearline,
+.fcfile_name,
+.fcclear,
+span.fcfile_lang.fc-iblock,
+br,
+span.fcfile_size.fc-iblock,
+span.fcfile_hits.fc-iblock,
+a.btn.btn-info.fcfile_viewFile {
+	display: none;
+}
+a.btn.btn-success.fcfile_downloadFile {
+	font-size: 0px;
+	background: none;
+}
+.fields-blockไฟล์ประกอบ {
+	display: table-cell;
+	padding: 15px;
+	vertical-align: middle;
+	text-align: right;
+	background: url(../css/download.png) center no-repeat;
+	width: 80px;
+	height: 80px;
+	border-left: 2px solid #f5f5f5;
+}
+.fields_ไฟล์ประกอบ {
+	font-size: 0px;
+}
+.btn-success:hover,
+.uk-button-secondary:hover {
+	border-color: transparent !important;
+}
