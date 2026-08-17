@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `#__ampz` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `params` text CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;

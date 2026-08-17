@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.4" method="upgrade">
+    <name>com_ampz</name>
+    <creationDate>January 07 2022</creationDate>
+    <copyright>Copyright 2014-2022 roosterz.nl</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>roosterz.nl</author>
+    <authorEmail>roy@roosterz.nl</authorEmail>
+    <authorUrl>https://www.roosterz.nl</authorUrl>
+    <version>4.1.1</version>
+    <description>ampz - social sharing like a boss</description>
+
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/ampz.sql</file>
+        </sql>
+    </install>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+	       </schemas>
+    </update>
+
+    <media destination="com_ampz" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+
+    <files folder="site">
+        <folder>controllers/</folder>
+        <folder>helpers/</folder>
+        <folder>models/</folder>
+        <folder>views/</folder>
+        <filename>ampz.php</filename>
+        <filename>controller.php</filename>
+		<filename>index.html</filename>
+        <filename>router.php</filename>
+	</files>
+
+    <administration>
+        <menu>COM_AMPZ</menu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>ampz.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+			<language tag="en-GB">en-GB/en-GB.com_ampz.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_ampz.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="system" plugin="ampz"/>
+    </plugins>
+
+</extension>

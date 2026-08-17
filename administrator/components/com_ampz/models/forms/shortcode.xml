@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general" addfieldpath="administrator/components/com_ampz/models/fields">
+
+        <field name="callout_name_start" type="callout" class="bs-callout-primary" start="1" label="COM_AMPZ_SHORTCODE_NAME" />
+            <field name="name" type="text" size="40" label="COM_AMPZ_SHORTCODE_NAME" description="COM_AMPZ_SHORTCODE_NAME_DESC" required="true" />
+        <field name="callout_name_end" type="callout" end="1" />
+
+    </fieldset>
+
+    <fieldset name="networks" addfieldpath="administrator/components/com_ampz/models/fields">
+
+        <field name="callout_networks_start" type="callout" class="bs-callout-primary" start="1" label="COM_AMPZ_SELECT_SORT_NETWORKS" />
+        <field name="AMPZ_NETWORKS_SELECT" type="rh_fancysortsc" description="shortcodes" >
+            <option value="btn_facebook_00" labels="Facebook" network="facebook" class="labelauty_small"></option>
+            <option value="btn_twitter_01" labels="Twitter" network="twitter" class="labelauty_small"></option>
+            <option value="btn_whatsapp_02" labels="WhatsApp" network="whatsapp" class="labelauty_small"></option>
+            <option value="btn_linkedin_04" labels="LinkedIn" network="linkedin" class="labelauty_small"></option>
+            <option value="btn_pinterest_05" labels="Pinterest" network="pinterest" class="labelauty_small"></option>
+            <option value="btn_telegram_06" labels="Telegram" network="telegram" class="labelauty_small"></option>
+            <option value="btn_email_07" labels="Email" network="email" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_xing_08" labels="Xing" network="xing" class="labelauty_small"></option>
+            <option value="btn_stumbleupon_09" labels="StumbleUpon" network="stumbleupon" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_tumblr_10" labels="Tumblr" network="tumblr" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_flattr_11" labels="Flattr" network="flattr" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_phone_12" labels="AMPZ_FOLLOW_ONLY, Phone" network="phone" followShareOnly="follow" class="labelauty_small"></option>
+            <option value="btn_reddit_13" labels="Reddit" network="reddit" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_print_14" labels="Print" network="print" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_love_15" labels="Love" network="love" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_vk_16" labels="VK" network="vk" class="labelauty_small"></option>
+            <option value="btn_pocket_17" labels="Pocket" network="pocket" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_buffer_18" labels="Buffer" network="buffer" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_instagram_19" labels="AMPZ_FOLLOW_ONLY, Instagram" network="instagram" followShareOnly="follow"  class="labelauty_small"></option>
+            <option value="btn_youtube_20" labels="AMPZ_FOLLOW_ONLY, Youtube" network="youtube" followShareOnly="follow"  class="labelauty_small"></option>
+            <option value="btn_odnoklassniki_21" labels="Odnoklassniki" network="odnoklassniki" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_houzz_22" labels="Houzz" network="houzz" class="labelauty_small"></option>
+            <option value="btn_viber_23" labels="Viber" network="viber" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_flipboard_24" labels="Flipboard" network="flipboard" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_line_25" labels="Line" network="line" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_fb-messenger_26" labels="Facebook Messenger" network="fb-messenger" class="labelauty_small"></option>
+            <option value="btn_gmail_27" labels="GMail" network="gmail" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_mix_28" labels="Mix" network="mix" followShareOnly="share" class="labelauty_small"></option>
+            <option value="btn_soundcloud_29" labels="AMPZ_FOLLOW_ONLY, Soundcloud" network="soundcloud" followShareOnly="follow"  class="labelauty_small"></option>
+            <option value="btn_spotify_30" labels="AMPZ_FOLLOW_ONLY, Spotify" network="spotify" followShareOnly="follow"  class="labelauty_small"></option>
+            <option value="btn_microsoft-teams_31" labels="Microsoft Teams" network="microsoft-teams" class="labelauty_small"></option>
+            <option value="btn_blogger_32" labels="Blogger" network="blogger" class="labelauty_small"></option>
+            <option value="btn_livejournal_33" labels="Livejournal" network="livejournal" class="labelauty_small"></option>
+            <option value="btn_yummly_34" labels="Yummly" followShareOnly="share" network="yummly" class="labelauty_small"></option>
+            <option value="btn_mailru_35" labels="Mail.ru" followShareOnly="share" network="mailru" class="labelauty_small"></option>
+            <option value="btn_copy_36" labels="Copy Link" followShareOnly="share" network="copy" class="labelauty_small"></option>
+            <option value="btn_tiktok_37" labels="AMPZ_FOLLOW_ONLY, Tiktok" followShareOnly="follow" network="tiktok" class="labelauty_small"></option>
+        </field>
+        <field name="callout_networks_end" type="callout" end="1" />
+
+        <field name="callout_button_template_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_BUTTON_TEMPLATE" />
+            <field name="params_buttonTemplate" type="rh_fancylist4" default="template_eindhoven" label="AMPZ_CHOOSE_BUTTON_TEMPLATE" description="AMPZ_CHOOSE_BUTTON_TEMPLATE_DESC">
+                <option value="template_amsterdam" labels="BUTTON_TEMPLATE_AMSTERDAM">Flat</option>
+                <option value="template_rotterdam" labels="BUTTON_TEMPLATE_ROTTERDAM">Grayish</option>
+                <option value="template_utrecht" labels="BUTTON_TEMPLATE_UTRECHT">Dark</option>
+                <option value="template_eindhoven" labels="BUTTON_TEMPLATE_EINDHOVEN">Modern</option>
+                <option value="template_bicolor" labels="BUTTON_TEMPLATE_BICOLOR">BiColor</option>
+                <option value="template_breda" labels="BUTTON_TEMPLATE_BREDA">Light</option>
+                <option value="template_minimal" labels="BUTTON_TEMPLATE_MINIMAL">Minimal</option>
+        </field>
+        <field name="callout_button_template_end" type="callout" end="1" />
+        <field name="callout_font_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_FONT" />
+            <field name="fontStyle" type="rh_fancylist4" default="Open Sans" label="AMPZ_CHOOSE_FONT" description="AMPZ_CHOOSE_FONT_DESC">
+                <option value="none">Use Website Font</option>
+                <option value="Open Sans">Open Sans</option>
+                <option value="Raleway">Raleway</option>
+                <option value="Arsenal">Arsenal</option>
+                <option value="Lato">Lato</option>
+                <option value="Roboto Condensed">Roboto Condensed</option>
+                <option value="Fira Sans Condensed">Fira Sans Condensed</option>
+                <option value="Oswald">Oswald</option>
+            </field>
+        <field name="callout_font_end" type="callout" end="1" />
+        <field name="callout_other_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_OTHER" />
+            <field name="buttonSize" type="list" default="ampz_btn_normal" label="AMPZ_BUTTON_SIZE" description="AMPZ_BUTTON_SIZE_DESC">
+                <option value="ampz_btn_very_small">AMPZ_VERY_SMALL</option>
+                <option value="ampz_btn_small">AMPZ_SMALL</option>
+                <option value="ampz_btn_normal">AMPZ_NORMAL</option>
+                <option value="ampz_btn_big">AMPZ_BIG</option>
+                <option value="ampz_btn_very_big">AMPZ_VERY_BIG</option>
+            </field>
+            <field name="roundedButtons" type="rh_fancycheckbox" label="AMPZ_ROUNDED_BUTTONS" class="labelauty_icon" description="AMPZ_ROUNDED_BUTTONS_DESC" value="1" default="0" />
+
+            <field name="iconOnly" type="rh_fancycheckbox" label="AMPZ_INLINE_ICON_ONLY" class="labelauty_icon" description="AMPZ_INLINE_ICON_ONLY_DESC" value="1"  />
+            <field name="buttonWidth" type="list" default="auto" label="AMPZ_BUTTON_WIDTH" description="AMPZ_BUTTON_WIDTH_DESC">
+                <option value="auto">AMPZ_AUTO</option>
+                <option value="orig_width">AMPZ_ORIG_WIDTH</option>
+            </field>
+            <field name="entranceEffect" type="list" default="fadeIn" label="AMPZ_ENTR_ANI" description="AMPZ_ENTR_ANI_DESC">
+                <option value="none">AMPZ_NONE</option>
+                <option value="bounceIn">Bounce In</option>
+                <option value="bounceInDown">Bounce In Down</option>
+                <option value="bounceInLeft">Bounce In Left</option>
+                <option value="bounceInRight">Bounce In Right</option>
+                <option value="bounceInUp">Bounce In Up</option>
+                <option value="fadeIn">Fade In</option>
+                <option value="fadeInDown">Fade In Down</option>
+                <option value="fadeInLeft">Fade In Left</option>
+                <option value="fadeInRight">Fade In Right</option>
+                <option value="fadeInUp">Fade In Up</option>
+                <option value="flipInX">Flip In X</option>
+                <option value="flipInY">Flip In Y</option>
+                <option value="slideInDown">Slide In Down</option>
+                <option value="slideInLeft">Slide In Left</option>
+                <option value="slideInRight">Slide In Right</option>
+                <option value="slideInUp">Slide In Up</option>
+            </field>
+            <field name="hoverEffect" type="list" default="none" label="AMPZ_HOVER_EFFECT" description="AMPZ_HOVER_EFFECT_DESC">
+                <option value="none">AMPZ_NONE</option>
+                <option value="hvr-grow">Grow</option>
+                <option value="hvr-pulse">Pulse</option>
+                <option value="hvr-float">Float</option>
+                <option value="hvr-wobble-vertical">Wobble Vertical</option>
+                <option value="hvr-wobble-horizontal">Wobble Horizontal</option>
+            </field>
+            <!-- <field name="note_limit_shortcode_buttons" type="note" text="AMPZ_LIMIT_BUTTONS_NOTE" /> -->
+            <field name="combineAfterButtons" type="list" default="4" label="AMPZ_NO_OF_BUTTONS" description="AMPZ_NO_BUTTONS_DESC">
+                <option value="1">AMPZ_BUTTON, 1</option>
+                <option value="2">AMPZ_BUTTONS, 2</option>
+                <option value="3">AMPZ_BUTTONS, 3</option>
+                <option value="4">AMPZ_BUTTONS, 4</option>
+                <option value="5">AMPZ_BUTTONS, 5</option>
+                <option value="6">AMPZ_BUTTONS, 6</option>
+            </field>
+
+            <field name="displayLabels" type="list" label="AMPZ_SHOW_LABELS" default="hover" description="AMPZ_SHOW_LABELS_DESC" value="1">
+                <option value="no">AMPZ_NO</option>
+                <option value="hover">AMPZ_HOVER</option>
+                <option value="yes">AMPZ_YES</option>
+            </field>
+            <field name="displayTotalShares" type="rh_fancycheckbox" label="AMPZ_SHOW_TOTAL" class="labelauty_icon" description="AMPZ_SHOW_TOTAL_DESC" value="1"  />
+            <field name="colorTotalShares" type="color" showon="displayTotalShares:1" default="#333" label="AMPZ_COLOR_TOTAL" description="AMPZ_COLOR_TOTAL_DESC" />
+            <field name="displayShareCounts" type="rh_fancycheckbox" label="AMPZ_SHOW_COUNTS" class="labelauty_icon" description="AMPZ_SHOW_COUNTS_DESC" value="1"  />
+        <field name="callout_other_end" type="callout" end="1" />
+
+    </fieldset>
+
+</form>

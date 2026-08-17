@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.4" method="upgrade">
+ <name>AMPZ</name>
+ <creationDate>January 07 2022</creationDate>
+ <author>roosterz.nl</author>
+ <packagename>ampz</packagename>
+ <version>4.1.1</version>
+ <url>https://www.roosterz.nl</url>
+ <packager>roosterz.nl</packager>
+ <packagerurl>https://www.roosterz.nl/joomla-extensions/ampz</packagerurl>
+ <license>GNU GPL v3 or later</license>
+ <description>AMPZ - Social Sharing Like a BOSS</description>
+
+ <files>
+    <file type="component" id="com_ampz">com_ampz.zip</file>
+    <file type="plugin" id="ampz" group="system">plg_ampz.zip</file>
+    <file type="plugin" id="ampz" group="editors-xtd">plg_editors-xtd_ampz.zip</file>
+</files>
+
+ <scriptfile>script.php</scriptfile>
+
+<updateservers>
+    <server type="extension" priority="1" name="AMPZ EXTENDED"><![CDATA[https://www.roosterz.nl/updates/ampz-extended.xml]]></server>
+</updateservers>
+
+</extension>

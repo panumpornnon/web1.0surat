@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension version="1.6" type="file" client="site" method="upgrade">
+<name>Thai Translation for JEvents</name>
+<tag>th-TH</tag>
+<packagename>th-TH JEvents</packagename>
+<version>3.20160826</version>
+<creationDate>2016.08.26</creationDate>
+<author>Prommart Saelua</author>
+<authorEmail>info@thaisolution.net</authorEmail>
+<authorUrl>http://www.thaisolution.net/</authorUrl>
+<copyright>Released under GNU GPL Public License</copyright>
+<license>GNU GPL</license>
+<description>
+	Thai Language for JEvents
+	</description>
+<administration>
+      
+    </administration>
+<site>
+      
+    </site>
+<params/>
+<scriptfile>install.php</scriptfile>
+<fileset>
+<files folder="admin" target="administrator/language/th-TH">
+	<filename>th-TH.com_jevents.ini</filename>
+	<filename>th-TH.com_jevents.menu.ini</filename>
+	<filename>th-TH.com_jevents.sys.ini</filename>
+	<filename>th-TH.mod_jevents_latest.ini</filename>
+	<filename>th-TH.pkg_jevents.sys.ini</filename>
+	<filename>th-TH.plg_content_jevents.ini</filename>
+	<filename>th-TH.plg_content_jevents.sys.ini</filename>
+	<filename>th-TH.plg_finder_jevents.ini</filename>
+	<filename>th-TH.plg_finder_jevents.sys.ini</filename>
+	<filename>th-TH.plg_search_eventsearch.ini</filename>
+</files>
+<files folder="site" target="language/th-TH">
+	<filename>th-TH.com_jevents.ini</filename>
+	<filename>th-TH.com_jevents.ini.bak</filename>
+	<filename>th-TH.mod_jevents_cal.ini</filename>
+	<filename>th-TH.mod_jevents_custom.ini</filename>
+	<filename>th-TH.mod_jevents_detail.ini</filename>
+	<filename>th-TH.mod_jevents_latest.ini</filename>
+</files>
+</fileset>
+</extension>

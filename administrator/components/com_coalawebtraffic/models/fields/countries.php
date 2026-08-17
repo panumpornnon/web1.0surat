@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @package     Joomla
+ * @subpackage  CoalaWeb Traffic
+ * @author      Steven Palmer <support@coalaweb.com>
+ * @link        https://coalaweb.com/
+ * @license     GNU/GPL V3 or later; https://www.gnu.org/licenses/gpl-3.0.html
+ * @copyright   Copyright (c) 2020 Steven Palmer All rights reserved.
+ *
+ * CoalaWeb Traffic is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+defined('_JEXEC') or die('Restricted access');
+
+JLoader::import('helpers.coalawebtraffic', JPATH_COMPONENT_ADMINISTRATOR);
+
+JFormHelper::loadFieldClass('list');
+
+/**
+ * Class JFormFieldCountries
+ */
+class JFormFieldCountries extends JFormFieldList
+{
+	public $type = 'Countries';
+
+    /**
+     * Create options list based on countries
+     *
+     * @return array
+     */
+	protected function getOptions()
+	{
+        $json = file_get_contents(JPATH_COMPONENT . '/assets/countries/country-code.json');
+
+        //Decode it reading to used
+        $obj = json_decode($json, true);
+		
+		$options = array();
+
+
+        foreach ($obj  as $key => $value) {
+            $option = new stdClass();
+            $option->value = strtolower($value['Code']);
+
+            $option->text = $value['Name'];
+            $options[] = $option;
+        }
+		
+		// Merge any additional options in the XML definition.
+		$options = array_merge(parent::getOptions(), $options);
+
+
+		return $options;
+	}
+
+}

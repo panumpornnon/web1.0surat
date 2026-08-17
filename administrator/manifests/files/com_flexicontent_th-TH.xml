@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension type="file" version="2.5" method="upgrade">
+	<name>FLEXIContent Language - Thai (Thailand)</name>
+	<version>2.2.0</version>
+	<creationDate>2014-10-15</creationDate>
+	<author>ColorPack Creations Team</author>
+	<authorEmail>pisan@colorpack.co.th</authorEmail>
+	<authorUrl>https://www.colorpack.co.th/</authorUrl>
+	<copyright>(C) 2008 - 2014 ColorPack Creations Team. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<description>Thai (Thailand) language file for FLEXIContent Component By ColorPack Creations Team.</description>
+
+	<fileset>
+		
+		<files folder="site" target="language/th-TH">
+			<filename>th-TH.com_flexicontent.ini</filename>
+			<filename>th-TH.mod_flexiadvsearch.ini</filename>
+			<filename>th-TH.mod_flexicontent.ini</filename>
+			<filename>th-TH.mod_flexifilter.ini</filename>
+			<filename>th-TH.mod_flexitagcloud.ini</filename>
+		</files>
+	</fileset>
+</extension>
