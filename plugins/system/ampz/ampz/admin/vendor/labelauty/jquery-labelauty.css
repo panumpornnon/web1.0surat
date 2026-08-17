@@ -1,0 +1,344 @@
+/*!
+ * LABELAUTY jQuery Plugin Styles
+ *
+ * @file: jquery-labelauty.css
+ * @author: Francisco Neves (@fntneves)
+ * @site: www.francisconeves.com
+ * @license: MIT License
+ */
+
+/* Prevent text and blocks selection */
+input.labelauty + label ::selection { background-color: rgba(255, 255, 255, 0); }
+input.labelauty + label ::-moz-selection { background-color: rgba(255, 255, 255, 0); }
+
+/* Hide original checkboxes. They are ugly! */
+input.labelauty { display: none !important; }
+
+/*
+ * Let's style the input
+ * Feel free to work with it as you wish!
+ */
+input.labelauty + label
+{
+	display: table;
+	font-size: 13px!important;
+	padding: 8px 0px!important;
+	color: #FFF;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	background-color: #ED5153;
+
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+
+
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+input.labelauty_small_share_follow + label {
+	/* background-color: #2196f3; */
+	background-color: rgba(1,1,1,0);
+}
+
+input.labelauty_small + label {
+    width: 50px;
+    height: 34px;
+    float: right;
+    padding: 0 !important;
+    border-radius: 0;
+}
+
+input.labelauty_small_share_follow + label {
+    width: 100px;
+    height: 34px;
+    float: right;
+    padding: 0 !important;
+    border-radius: 0;
+}
+
+html[dir="rtl"] input.labelauty_small + label {
+    float: left;
+}
+
+input.labelauty_icon + label {
+    padding: 4px !important;
+    margin-bottom: 5px !important;
+    height: 18px;
+    line-height: 18px;
+    width: 212px;
+}
+
+.joomla4 input.labelauty_icon + label {
+    width: 100%;
+	line-height: 25px;
+    height: calc(1.5em + 1.2rem + 2px);
+}
+
+/* Stylish text inside label */
+
+input.labelauty_small_share_follow + label > span.labelauty-unchecked,
+input.labelauty_small_share_follow + label > span.labelauty-checked
+{
+	line-height: 34px!important;
+}
+
+input.labelauty_small_share_follow + label > span.labelauty-unchecked-image,
+input.labelauty_small_share_follow + label > span.labelauty-checked-image
+{
+	display: none!important;
+}
+
+input.labelauty + label > span.labelauty-unchecked,
+input.labelauty + label > span.labelauty-checked
+{
+	display: inline-block;
+	line-height: 18px;
+	vertical-align: bottom;
+}
+
+/* Stylish icons inside label */
+
+input.labelauty + label > span.labelauty-unchecked-image,
+input.labelauty + label > span.labelauty-checked-image
+{
+	display: inline-block;
+	width: 30px;
+	height: 18px;
+	text-align: center;
+	vertical-align: bottom;
+	background-repeat: no-repeat;
+	background-position: left center;
+
+	transition: background-image 0.5s linear;
+	-moz-transition: background-image 0.5s linear;
+	-webkit-transition: background-image 0.5s linear;
+	-o-transition: background-image 0.5s linear;
+}
+
+input.labelauty_small + label > span.labelauty-unchecked-image,
+input.labelauty_small + label > span.labelauty-checked-image {
+    width: 54px;
+    height: 34px;
+    background-position: center center;
+    border-left: 4px solid #fff;
+}
+
+input.labelauty_small_share_follow + label > span.labelauty-unchecked,
+input.labelauty_small_share_follow + label > span.labelauty-checked {
+	width: 100px;
+	border-left: 4px solid #fff;
+}
+
+/* When not Checked */
+input.labelauty:not(:checked):not([disabled]) + label:hover
+{
+	background-color: rgba(237, 81, 83, 0.9);
+	color: #fff;
+	box-shadow: 0px 4px 0px #C84F4F;
+	transition: all 0.3s ease-out 0s;
+	outline: none;
+}
+
+input.labelauty:not(:checked) + label > span.labelauty-checked-image
+{
+	display: none;
+}
+
+input.labelauty:not(:checked) + label > span.labelauty-checked
+{
+	display: none;
+}
+
+/* When Checked */
+input.labelauty:checked + label
+{
+	background-color: #5BB75B;
+}
+
+input.labelauty:checked:not([disabled]) + label:hover
+{
+	background-color: rgba(91, 183, 91, 0.9);
+    color: #fff;
+    box-shadow: 0px 4px 0px #4FA54F;
+    transition: all 0.3s ease-out 0s;
+    outline: none;
+}
+input.labelauty_small_share_follow:checked + label {
+	background-color: rgba(1,1,1,0);
+}
+input.labelauty_small_share_follow:checked:not([disabled]) + label:hover,
+input.labelauty_small_share_follow:not(:checked):not([disabled]) + label:hover {
+	background-color: rgba(1,1,1,0.1);
+}
+
+input.labelauty:checked + label > span.labelauty-unchecked-image
+{
+	display: none;
+}
+
+input.labelauty:checked + label > span.labelauty-unchecked
+{
+	display: none;
+}
+
+input.labelauty:checked + label > span.labelauty-checked
+{
+	display: inline-block;
+}
+
+input.labelauty.no-label:checked + label > span.labelauty-checked
+{
+	display: block;
+}
+
+/* When Disabled */
+input.labelauty[disabled] + label, input.labelauty[readonly] + label
+{
+	opacity: 0.5;
+	cursor: default;
+}
+
+input.labelauty + label > span.labelauty-unchecked-image
+{
+	background-image: url( images/cross.svg );
+	background-size: 14px;
+}
+
+input.labelauty + label > span.labelauty-unchecked-image:hover
+{
+	background-image: url( images/cross.svg );
+}
+
+input.labelauty + label > span.labelauty-checked-image
+{
+	background-image: url( images/checked.svg );
+	background-size: 14px;
+}
+
+.toggle-button, .toggle-content {
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: height 300ms linear;
+	-moz-transition: height 300ms linear;
+	-o-transition: height 300ms linear;
+	transition: height 300ms linear;
+}
+
+.btn-bordered {
+	padding: 8px 0;
+	font-size: 13px;
+	border-radius: 3px;
+	color: #2196F3!important;
+	display: inline-block;
+	white-space: nowrap;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: all 0.3s ease-out 0s;
+	text-align: center;
+    margin-top: 5px;
+	border: 2px solid #2196F3;
+	width: 146px;
+}
+
+.btn-bordered:hover {
+	box-shadow: 0px 4px 0px #00A0CE;
+	background: rgba(60, 173, 231, 0.90);
+	transition: all 0.3s ease-out 0s;
+	color: #FFF!important;
+	text-decoration: none;
+	outline: none;
+}
+
+.toggle-button-icon {
+    width: 0;
+    overflow: hidden;
+    background: url( images/edit.svg ) no-repeat center center #2196F3;
+    background-size: 14px;
+    float: right;
+    border-left: 4px solid #fff;
+    -webkit-transition: width 300ms linear;
+    -moz-transition: width 300ms linear;
+    -o-transition: width 300ms linear;
+    transition: width 300ms linear;
+}
+
+html[dir="rtl"] .toggle-button-icon {
+	float: left;
+	border-right: 4px solid #fff;
+}
+
+.btn-bordered-icon {
+    font-size: 13px;
+    border-radius: 3px;
+    color: #FFF!important;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-out 0s;
+    text-align: center;
+	height: 100%;
+    display: block;
+    text-indent: -99em;
+}
+
+.toggle-button-icon:hover {
+    background: url( images/edit.svg ) no-repeat center center rgba(60, 173, 231, 0.90);
+    background-size: 14px;
+    transition: all 0.3s ease-out 0s;
+    color: #FFF;
+    text-decoration: none;
+    outline: none;
+}
+
+.btn-bordered:focus, .btn-bordered-icon:focus {
+	color: #FFF;
+	text-decoration: none;
+	outline: none;
+}
+
+input.labelauty:checked + label + .toggle-button {
+	height: 48px;
+	width: 150px;
+}
+
+input.labelauty:checked + label + .toggle-button-icon {
+    height: 34px;
+    width: 54px;
+}
+
+input.labelauty:checked + label + .toggle-button-icon-wide {
+	width: 150px;
+	border-radius: 3px;
+	border: 0;
+	margin: 5px 0;
+}
+
+input.labelauty:not(:checked) + label + .toggle-button-icon {
+    border-left: 0px;
+}
+
+input.labelauty:checked + label + .toggle-content {
+	height: 100px;
+	width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    input.labelauty_icon + label {
+        width: 175px;
+        padding: 1px!important;
+    }
+
+}

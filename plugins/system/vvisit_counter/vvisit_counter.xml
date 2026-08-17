@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system">
+	<name>plg_vvisit_counter</name>
+	<author>Mindphp</author>
+	<creationDate>Apr 2012</creationDate>
+	<copyright>Copyright (C) 2014 Mindphp. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorUrl>http://mindphp.com</authorUrl>
+	<version>1.0.1</version>
+	<description>PLG_MDVISIT_COUNTER_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="vvisit_counter">vvisit_counter.php</filename>
+		<filename>index.html</filename>
+		<folder>helper</folder>
+		<folder>language</folder>
+		<folder>sql</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_system_vvisit_counter.ini</language>
+		<language tag="en-GB">language/en-GB.plg_system_vvisit_counter.sys.ini</language>
+		<language tag="en-GB">language/th-TH.plg_system_vvisit_counter.ini</language>
+		<language tag="en-GB">language/th-TH.plg_system_vvisit_counter.sys.ini</language>
+	</languages>
+	<install>
+		<sql>
+			<file driver="mysql">sql/install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql">sql/unistall.sql</file>
+		</sql>
+	</uninstall>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="onbackend" type="radio" default="0" label="PLG_MDVISIT_COUNTER_FIELD_ONBACKEND" description="PLG_MDVISIT_COUNTER_FIELD_ONBACKEND_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade" version="3.0">
+	<name>PLG_SYSTEM_GRAYSCALE</name>
+	<author>Pisan Chueachatchai</author>
+	<creationDate>2025-10</creationDate>
+	<copyright>(C) 2025 Colorpack Creations Co.,Ltd.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorUrl>https://www.Colorpack.co.th</authorUrl>
+	<version>1.8.0</version>
+	<description>PLG_SYSTEM_GRAYSCALE_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="grayscale">grayscale.php</filename>
+		<folder>language</folder>
+	</files>
+
+	<media destination="plg_system_grayscale" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+	</media>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_grayscale.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_grayscale.sys.ini</language>
+		<language tag="th-TH">th-TH/th-TH.plg_system_grayscale.ini</language>
+		<language tag="th-TH">th-TH/th-TH.plg_system_grayscale.sys.ini</language>
+	</languages>
+
+	<config addfieldpath="/plugins/system/grayscale/fields">
+		<fields name="params" type="plugin" label="PLG_SYSTEM_GRAYSCALE">
+			<fields>
+				<fieldset name="basic" label="PLG_SYSTEM_GRAYSCALE_BASIC_SETTINGS" 
+				class="option-field">
+				<field name="intensity" type="range"
+					label="PLG_SYSTEM_GRAYSCALE_INTENSITY_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_INTENSITY_DESC"
+					default="80" min="0" max="100" step="1"/>
+				<field name="exclude_media" type="radio" 
+					label="PLG_SYSTEM_GRAYSCALE_EXCLUDE_MEDIA_LABEL"
+					default="1" 
+					description="PLG_SYSTEM_GRAYSCALE_EXCLUDE_MEDIA_DESC">
+					<option value="0">PLG_SYSTEM_GRAYSCALE_DISABLED</option>
+					<option value="1">PLG_SYSTEM_GRAYSCALE_ENABLED</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="blackbar" label="PLG_SYSTEM_GRAYSCALE_BLACKBAR_SETTINGS">
+				<field name="bar_enabled" type="radio" 
+					label="PLG_SYSTEM_GRAYSCALE_BAR_ENABLED_LABEL"
+					default="0" 
+					description="PLG_SYSTEM_GRAYSCALE_BAR_ENABLED_DESC">
+					<option value="0">PLG_SYSTEM_GRAYSCALE_DISABLED</option>
+					<option value="1">PLG_SYSTEM_GRAYSCALE_ENABLED</option>
+				</field>
+
+				<field name="bar_position" type="list" 
+					label="PLG_SYSTEM_GRAYSCALE_BAR_POSITION_LABEL"
+					default="top" 
+					description="PLG_SYSTEM_GRAYSCALE_BAR_POSITION_DESC">
+					<option value="top">PLG_SYSTEM_GRAYSCALE_TOP</option>
+				</field>
+
+				<field name="bar_color" type="text"
+					label="PLG_SYSTEM_GRAYSCALE_BAR_COLOR_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_BAR_COLOR_DESC"
+					default="dam-khe-ma"
+					hint="dam-khe-ma"
+					class="hidden"/>
+
+				<field name="bar_height" type="text" 
+					label="PLG_SYSTEM_GRAYSCALE_BAR_HEIGHT_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_BAR_HEIGHT_DESC"
+					default="50px"/>
+
+				<field name="bar_image" type="media" 
+					label="PLG_SYSTEM_GRAYSCALE_BAR_IMAGE_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_BAR_IMAGE_DESC" 
+					preview="true"/>
+
+				<field name="bar_image_width" type="text" 
+					label="PLG_SYSTEM_GRAYSCALE_BAR_IMAGE_WIDTH_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_BAR_IMAGE_WIDTH_DESC"
+					default="100px"/>
+
+				<field name="bar_text" type="text" 
+					label="PLG_SYSTEM_GRAYSCALE_BAR_TEXT_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_BAR_TEXT_DESC"
+					default="น้อมสำนึกในพระมหากรุณาธิคุณเป็นล้นพ้นอันหาที่สุดมิได้"/>
+
+				<field name="bar_font" type="list"
+					label="PLG_SYSTEM_GRAYSCALE_BAR_FONT_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_BAR_FONT_DESC"
+					default="Charm">
+					<option value="Srisakdi">Srisakdi</option>
+					<option value="Charmonman">Charmonman</option>
+					<option value="Trirong">Trirong</option>
+					<option value="Pattaya">Pattaya</option>
+					<option value="IBM Plex Sans Thai">IBM Plex Sans Thai</option>
+					<option value="Charm">Charm</option>
+					<option value="Niramit">Niramit</option>
+					<option value="Mitr">Mitr</option>
+					<option value="Krub">Krub</option>
+					<option value="Sarabun">Sarabun</option>
+					<option value="Kanit">Kanit</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="ribbon" label="PLG_SYSTEM_GRAYSCALE_RIBBON_SETTINGS">
+				<field name="ribbon_enabled" type="radio" 
+					label="PLG_SYSTEM_GRAYSCALE_RIBBON_ENABLED_LABEL"
+					default="0" 
+					description="PLG_SYSTEM_GRAYSCALE_RIBBON_ENABLED_DESC">
+					<option value="0">PLG_SYSTEM_GRAYSCALE_DISABLED</option>
+					<option value="1">PLG_SYSTEM_GRAYSCALE_ENABLED</option>
+				</field>
+
+				<field name="ribbon_position" type="list" 
+					label="PLG_SYSTEM_GRAYSCALE_RIBBON_POSITION_LABEL"
+					default="top-left" 
+					description="PLG_SYSTEM_GRAYSCALE_RIBBON_POSITION_DESC">
+					<option value="top-left">PLG_SYSTEM_GRAYSCALE_TOP_LEFT</option>
+					<option value="top-right">PLG_SYSTEM_GRAYSCALE_TOP_RIGHT</option>
+					<option value="bottom-right">PLG_SYSTEM_GRAYSCALE_BOTTOM_RIGHT</option>
+					<option value="bottom-left">PLG_SYSTEM_GRAYSCALE_BOTTOM_LEFT</option>
+				</field>
+
+				<field name="ribbon_image" type="media" 
+					label="PLG_SYSTEM_GRAYSCALE_RIBBON_IMAGE_LABEL"
+					description="PLG_SYSTEM_GRAYSCALE_RIBBON_IMAGE_DESC" 
+					preview="true"/>
+			</fieldset>
+			</fields>
+		</fields>
+	</config>
+</extension>

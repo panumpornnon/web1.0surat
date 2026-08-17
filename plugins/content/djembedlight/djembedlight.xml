@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5.5" type="plugin" group="content" method="upgrade">
+	<name>plg_content_djembedlight</name>
+	<creationDate>November 2014</creationDate>
+    <author>DJ-Extensions.com</author>
+	<copyright>Copyright (C) 2015 DJ-Extensions.com, All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses GNU/GPL</license>
+	<authorEmail>contact@dj-extensions.com</authorEmail>
+	<authorUrl>http://dj-extensions.com</authorUrl>
+	<version>1.1.1</version>
+	<description>PLG_CONTENT_DJEMBEDLIGHT_DESCRIPTION</description>
+	<files>
+		<filename plugin="djembedlight">djembedlight.php</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+		<folder>assets</folder>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="DJ-Embed Light">https://dj-extensions.com/updates/djembedlight.xml</server>
+	</updateservers>
+	<!--config>
+		<fields name="params">
+
+			<fieldset name="component" label="PLG_DJEMBEDLIGHT_BASIC_SETTINGS">
+				
+			</fieldset>
+			
+		</fields>
+	</config-->
+	
+</extension>

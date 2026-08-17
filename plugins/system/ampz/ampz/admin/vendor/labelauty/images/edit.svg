@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="48px" viewBox="0 0 50 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="1425002203_pen-checkbox" sketch:type="MSLayerGroup" fill="#FFFFFF">
+            <g id="Group" sketch:type="MSShapeGroup">
+                <path d="M48.736,5.636 L44.368,1.274 C43.917,0.823 43.324,0.597 42.732,0.597 C42.14,0.597 41.548,0.822 41.097,1.273 L37.603,4.757 L45.242,12.383 L48.736,8.9 C49.639,7.998 49.639,6.535 48.736,5.636 L48.736,5.636 Z" id="Shape"></path>
+                <path d="M14.922,27.396 L22.562,35.023 L43.607,14.017 L35.967,6.39 L14.922,27.396 Z" id="Shape"></path>
+                <path d="M13.273,29.028 L11.642,38.28 L20.913,36.654 L13.273,29.028 Z" id="Shape"></path>
+                <path d="M34.393,42.403 L5.587,42.403 L5.587,13.597 L25.916,13.597 L30.926,8.597 L3.82,8.597 C2.041,8.597 0.586,10.052 0.586,11.831 L0.586,44.17 C0.586,45.949 2.041,47.404 3.82,47.404 L36.159,47.404 C37.938,47.404 39.393,45.949 39.393,44.17 L39.393,21.049 L34.393,26.04 L34.393,42.403 L34.393,42.403 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,199 @@
+{
+	"sections": {
+		"accessibility": {
+			"title": "Accessibility",
+			"priority": 100,
+			"fields": {
+				"djacc_position": {
+					"type": "select",
+					"label": "Position type",
+					"options": {
+						"Sticky (fixed)": "sticky",
+						"Custom position (static)": "custom"
+					},
+					"default": "sticky"
+				},
+				"djacc_layout": {
+					"type": "select",
+					"label": "Layout",
+					"default": "popup",
+					"options": {
+						"Popup": "popup",
+						"Toolbar": "toolbar"
+					}
+				},
+				"djacc_style": {
+					"type": "select",
+					"label": "Theme",
+					"default": "dark",
+					"options": {
+						"Dark": "dark",
+						"Light": "light"
+					}
+				},
+
+				"djacc_direction": {
+					"type": "select",
+					"label": "Popup open direction",
+					"options": {
+						"down": "top center",
+						"down left": "top right",
+						"down right": "top left",
+						"left": "center left",
+						"right": "center right",
+						"up": "bottom center",
+						"up left": "bottom right",
+						"up right": "bottom left"
+					},
+					"default": "top left",
+					"show": "djacc_layout=='popup' && djacc_position=='custom'"
+				},
+
+				"djacc_align_popup": {
+					"type": "select",
+					"label": "Position",
+					"options": {
+						"top": "top center",
+						"top left": "top left",
+						"top right": "top right",
+						"left": "center left",
+						"right": "center right",
+						"bottom": "bottom center",
+						"bottom left": "bottom left",
+						"bottom right": "bottom right"
+					},
+					"default": "top right",
+					"show": "djacc_layout=='popup' && djacc_position=='sticky'"
+				},
+				"djacc_align_toolbar": {
+					"type": "select",
+					"label": "Position",
+					"options": {
+						"top": "top center",
+						"left": "center left",
+						"right": "center right",
+						"bottom": "bottom center"
+					},
+					"default": "top center",
+					"show": "djacc_layout=='toolbar' && djacc_position=='sticky'"
+				},
+
+				"djacc_align_mobile_ch": {
+					"type": "checkbox",
+					"text": "mobile align",
+					"show": "djacc_layout=='popup' && djacc_position=='sticky'"
+				},
+				"djacc_align_mobile": {
+					"type": "select",
+					"label": "Mobile position",
+					"options": {
+						"top": "top center",
+						"top left": "top left",
+						"top right": "top right",
+						"left": "center left",
+						"right": "center right",
+						"bottom": "bottom center",
+						"bottom left": "bottom left",
+						"bottom right": "bottom right"
+					},
+					"default": "bottom right",
+					"show": "djacc_layout=='popup' && djacc_position=='sticky' && djacc_align_mobile_ch"
+				},
+				"djacc_space": {
+					"type": "checkbox",
+					"text": "Reserve space",
+					"default": "true",
+					"show": "djacc_layout=='toolbar' && djacc_position=='sticky'"
+				},
+
+				"djacc_voff_popup": {
+					"type": "number",
+					"label": "Offset top/bottom",
+					"default": "20",
+					"show": "djacc_layout=='popup' && djacc_position=='sticky'"
+				},
+				"djacc_hoff_popup": {
+					"type": "number",
+					"label": "Offset left/right",
+					"default": "20",
+					"show": "djacc_layout=='popup' && djacc_position=='sticky'"
+				},
+				"djacc_voff_toolbar": {
+					"type": "number",
+					"label": "Offset top/bottom",
+					"default": "0",
+					"show": "djacc_layout=='toolbar' && djacc_position=='sticky'"
+				},
+				"djacc_hoff_toolbar": {
+					"type": "number",
+					"label": "Offset left/right",
+					"default": "0",
+					"show": "djacc_layout=='toolbar' && djacc_position=='sticky'"
+				},
+
+				"djacc_image": {
+					"label": "Button",
+					"type": "image",
+					"show": "djacc_layout=='popup'"
+				},
+				"djacc_width": {
+					"type": "number",
+					"label": "Width",
+					"default": "48",
+					"show": "djacc_layout=='popup' && djacc_image"
+				},
+				"djacc_height": {
+					"type": "number",
+					"label": "Height",
+					"default": "48",
+					"show": "djacc_layout=='popup' && djacc_image"
+				}
+
+
+			},
+			"fieldset": {
+				"default": {
+					"fields": [
+						"djacc_style",
+						"djacc_position",
+						"djacc_layout",
+						"djacc_direction",
+						"djacc_align_popup",
+						"djacc_align_toolbar",
+						"djacc_align_mobile_ch",
+						"djacc_align_mobile",
+						"djacc_space",
+						{
+							"type": "grid",
+							"name": "djacc_offset_popup",
+							"width": "1-2",
+							"fields": [
+								"djacc_voff_popup",
+								"djacc_hoff_popup"
+							]
+						},
+						{
+							"type": "grid",
+							"name": "djacc_offset_toolbar",
+							"width": "1-2",
+							"fields": [
+								"djacc_voff_toolbar",
+								"djacc_hoff_toolbar"
+							]
+						},
+						"djacc_image",
+						{
+							"type": "grid",
+							"name": "djacc_image_dimension",
+							"width": "1-2",
+							"fields": [
+								"djacc_width",
+								"djacc_height"
+							]
+						}
+					]
+				}
+			}
+		}
+	}
+}

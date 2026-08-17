@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.6" type="plugin" group="system" method="upgrade">
+    <name>PLG_CWTRAFFICCLEAN</name>
+    <creationDate>2020-02-13</creationDate>
+    <author>Steven Palmer</author>
+    <authorEmail>support@coalaweb.com</authorEmail>
+    <authorUrl>https://coalaweb.com</authorUrl>
+    <copyright>© 2020 Steven Palmer (CoalaWeb), All rights reserved.</copyright>
+    <license>GNU/GPL V3 or later.</license>
+    <version>1.1.8</version>
+    <description>PLG_CWTRAFFICCLEAN_DESC</description>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_cwtrafficclean.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_cwtrafficclean.sys.ini</language>
+    </languages>
+        
+    <files>
+        <folder>assets</folder>
+		<file>index.html</file>
+		<file plugin="cwtrafficclean">cwtrafficclean.php</file>
+		<folder>language</folder>
+    </files>
+        
+    <config>
+        <fields 
+            name="params" 
+            addfieldpath="plugins/system/cwgears/fields">
+            
+            <fieldset 
+                name="GENERAL"
+                label="PLG_CWTRAFFICCLEAN_SETTINGS" >
+                
+                <field 
+                    name="css_import" 
+                    type="css"/>
+                
+                <field 
+                    name="basic_info"
+                    type="note"
+                    close="true"
+                    class="alert alert-info"
+                    label="PLG_CWTRAFFICCLEAN_SETTINGS_TITLE"
+                    description="PLG_CWTRAFFICCLEAN_SETTINGS_MESSAGE"/>
+        
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field
+                        name="dependency_spacer"
+                        type="spacer"
+                        label="PLG_CWTRAFFICCLEAN_SPACER_DEPENDENCY"
+                        class="cw_label"/>
+
+                <field
+                        name="dependency_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="PLG_CWTRAFFICCLEAN_DEPENDENCY_MSG"/>
+
+                <field
+                        name="dependent_gears"
+                        type="dependent"
+                        label="PLG_CWTRAFFICCLEAN"
+                        description="plg_system_cwgears"/>
+
+                <field
+                        name="dependent_component"
+                        type="dependent"
+                        label="PLG_CWTRAFFICCLEAN"
+                        description="com_coalawebtraffic"/>
+
+                <field
+                        name="debug_spacer"
+                        type="spacer"
+                        label="PLG_CWTRAFFICCLEAN_SPACER_DEBUG"
+                        class="cw_label"/>
+
+                <field
+                        name="debug_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="PLG_CWTRAFFICCLEAN_MSG_DEBUG"/>
+
+                <field
+                        name="debug"
+                        class="btn-group btn-group-yesno"
+                        type="list"
+                        default=""
+                        label="PLG_CWTRAFFICCLEAN_FIELD_DEBUG_LABEL"
+                        description="PLG_CWTRAFFICCLEAN_FIELD_DEBUG_DESC">
+                    <option value="">PLG_CWTRAFFICCLEAN_FIELD_COM_OPT</option>
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+            </fieldset>
+            
+            <fieldset 
+                name="VERSION"
+                label="PLG_CWTRAFFICCLEAN_TITLE_VERSION">
+                
+                <field 
+                    name="version_info"
+                    type="versioncheck"
+                    label="com_coalawebtraffic"/>
+            </fieldset>
+            
+        </fields>
+    </config>
+</extension>

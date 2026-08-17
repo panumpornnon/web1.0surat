@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="editors-xtd" method="upgrade">
+<name>PLG_EDITORS-XTD_AMPZ</name>
+<description>PLG_EDITORS-XTD_AMPZ_DESC</description>
+<creationDate>January 07 2022</creationDate>
+<author>roosterz.nl</author>
+<authorEmail>roy@roosterz.nl</authorEmail>
+<authorUrl>www.roosterz.nl</authorUrl>
+<copyright>Copyright 2014-2022 roosterz.nl</copyright>
+<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+<version>4.1.1</version>
+<files>
+	<filename plugin="ampz">ampz.php</filename>
+	<filename>form.xml</filename>
+	<folder>language</folder>
+</files>
+</extension>

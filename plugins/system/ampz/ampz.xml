@@ -1,0 +1,1154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="system" method="upgrade">
+    <name>System - ampz</name>
+    <creationDate>January 07 2022</creationDate>
+    <author>roosterz.nl</author>
+    <authorEmail>roy@roosterz.nl</authorEmail>
+    <authorUrl>www.roosterz.nl</authorUrl>
+    <copyright>Copyright 2014-2020 roosterz.nl</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <version>4.1.1</version>
+    <description>AMPZ_DESCRIPTION</description>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_ampz.ini</language>
+        <language tag="es-ES">es-ES/es-ES.plg_system_ampz.ini</language>
+    </languages>
+
+    <files>
+        <filename plugin="ampz">ampz.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <folder>ampz</folder>
+    </files>
+
+    <config>
+        <fields name="params" addfieldpath="/administrator/components/com_ampz/models/fields">
+            <fieldset name="basic">
+                <field type="item" path="/plugins/system/ampz/ampz/admin/" />
+                <field name="wrapper_start" type="rh_wrapper" start="1" />
+                    <field name="side_left_start" type="rh_side" class="rh_left-side" start="1" />
+                        <field name="sidebar_start" type="rh_sidebar" start="1" />
+                            <field name="sidebarmenu_start" type="rh_sidebarmenu" start="1" />
+                                <field name="menu_1" type="rh_sidebarmenuitem" icon="rh_icon-placement" label="AMPZ_LABEL_PLACEMENT" link="#placement" active="1" />
+                                <field name="menu_2" type="rh_sidebarmenuitem" icon="rh_icon-networks" label="AMPZ_LABEL_NETWORKS" link="#networks" />
+                                <field name="menu_3" type="rh_sidebarmenuitem" icon="rh_icon-design" label="AMPZ_LABEL_DESIGN" link="#design" />
+                                <field name="menu_4" type="rh_sidebarmenuitem" icon="rh_icon-mobile" label="AMPZ_LABEL_MOBILE" link="#mobile" />
+                                <field name="menu_5" type="rh_sidebarmenuitem" icon="rh_icon-general" label="AMPZ_LABEL_GENERAL" link="#generalsettings" />
+                                <field name="menu_6" type="rh_sidebarmenuitem" icon="rh_icon-updates" label="AMPZ_LABEL_UPDATES" link="#updates" />
+                                <field name="menu_7" type="rh_sidebarmenuitem" icon="rh_icon-about" label="AMPZ_LABEL_ABOUT" link="#about" />
+                            <field name="sidebarmenu_end" type="rh_sidebarmenu" end="1" />
+                        <field name="sidebar_end" type="rh_sidebar" end="1" />
+                    <field name="side_left_end" type="rh_side" end="1" />
+                    <field name="side_right_start" type="rh_side" class="rh_right-side"  start="1" />
+                        <field name="tab1_start" type="rh_tab"  id="placement"  title="AMPZ_PLACEMENT_TITLE" doclink="https://docs.roosterz.nl/ampz/configuration/placement" start="1" active="1" />
+                            <field name="AMPZ_LOCATION_SELECT"  type="rh_fancycheckboxes" >
+                                <option value="display_inline" labels="Inline" picture="inline" text="AMPZ_LOCATION_INLINE" class="labelauty"></option>
+                                <option value="display_sidebar" labels="Sidebar" picture="sidebar" text="AMPZ_LOCATION_SIDEBAR" class="labelauty"></option>
+                                <option value="display_flyin" labels="Fly In" picture="flyin" text="AMPZ_LOCATION_FLYIN" class="labelauty"></option>
+                                <!--<option value="display_popup" labels="Popup" picture="popup" text="Appearing Popup when Visitor Tries to Leave the Website" class="labelauty"></option>-->
+                            </field>
+                            <field name="callout_publishingAssignments_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_PUBLISHING_ASSIGNMENTS" />
+                                <field name="callout_includeComponents_start" type="callout" class="bs-callout" start="1" label="AMPZ_DISPLAY_IN_COMP" />
+                                    <field name="note_include" type="note4" text="AMPZ_DISPLAY_IN_COMP_NOTE" />
+
+                                    <field name="includeComponents" type="rh_components4"  multiple="multiple"
+					                layout="joomla.form.field.list-fancy-select"
+                                    admin="0" show_content="1"
+                                    default="" label="AMPZ_DISPLAY_IN" description="AMPZ_INCL_COMP" />
+
+
+                                    <field name="note_excludeCategoryView" type="note4" text="AMPZ_EXCL_CAT_VIEW_NOTE" />
+                                    <field name="exclude_category_view" type="rh_fancycheckbox" label="AMPZ_EXCL_CAT_VIEW" class="labelauty_icon" description="AMPZ_EXCL_CAT_VIEW_NOTE" value="1"  />
+                                <field name="callout_includeComponents_end" type="callout" end="1" />
+
+                                <field name="callout_excludeMenuItems_start" type="callout" class="bs-callout" start="1" label="AMPZ_EXCL_MENU_ITEMS" />
+                                    <field name="note_exclude_menu" type="note4" text="AMPZ_EXCL_MENU_ITEMS_NOTE" />
+                                    <field name="excludeMenuItems" type="rh_menuitems" multiple="true" default="" label="AMPZ_EXCL_MENU_ITEMS" description="AMPZ_EXCL_MENU_ITEMS_DESC" />
+                                <field name="callout_excludeMenuItems_end" type="callout" end="1" />
+
+                                <field name="callout_urls_start" type="callout" class="bs-callout" start="1" label="AMPZ_EXCL_INCL_URLS" />
+                                    <field name="note_incl_exclude_urls" type="note4" text="AMPZ_EXCL_INCL_URLS_NOTE" />
+                                    <field name="exclude_include_urls_select" type="radio" filter="integer"
+                                          class="btn-group" default="" label="AMPZ_EXCLUDE_INCLUDE, Urls">
+                    					<option value="">AMPZ_IGNORE</option>
+                                        <option value="0">AMPZ_EXCLUDE</option>
+                                        <option value="1">AMPZ_INCLUDE</option>
+                    				</field>
+                                    <field name="exclude_include_urls" type="textarea" default="" showon="exclude_include_urls_select:0,1" label="Url(s)"
+                                    rows="5" class="max_width" hint="e.g. /blog/welcome-to-our-site" description="AMPZ_EXCL_INCL_URLS_DESC" />
+
+                                <field name="callout_urls_end" type="callout" end="1" />
+
+                                <field name="callout_excludeContent_start" type="callout" class="bs-callout" start="1" label="AMPZ_EXCL_JOOMLA_CONTENT, Joomla" />
+                                    <field name="note_excludeCategories" type="note4" text="AMPZ_EXCL_JOOMLA_NOTE, categories" />
+                                    <field name="exclude_include_categories" type="radio" class="btn-group" default="" label="AMPZ_EXCLUDE_INCLUDE, Categories" description="AMPZ_EXCLUDE_INCLUDE_DESC">
+                    					<option value="">AMPZ_IGNORE</option>
+                                        <option value="0">AMPZ_EXCLUDE</option>
+                                        <option value="1">AMPZ_INCLUDE</option>
+                    				</field>
+                                    <field name="excludeCategories" type="rh_categories4" multiple="multiple"
+					                        layout="joomla.form.field.list-fancy-select"  default="" label="AMPZ_EXCL_SELECT, Categories" description="AMPZ_EXCLUDE_INCLUDE_DESC, Categories" showon="exclude_include_categories:0,1" />
+                                    <field name="note_excludeArticles" type="note4" text="AMPZ_EXCL_JOOMLA_NOTE, articles" />
+                                    <field name="exclude_include_articles" type="radio" class="btn-group" default="" label="AMPZ_EXCLUDE_INCLUDE, Articles" description="AMPZ_EXCLUDE_INCLUDE_DESC">
+                                        <option value="">AMPZ_IGNORE</option>
+                                        <option value="0">AMPZ_EXCLUDE</option>
+                                        <option value="1">AMPZ_INCLUDE</option>
+                                    </field>
+                                    <field name="excludeArticles" type="rh_articles4" multiple="multiple"
+					                        layout="joomla.form.field.list-fancy-select" default="" label="AMPZ_EXCL_SELECT, Articles" description="AMPZ_EXCLUDE_INCLUDE_DESC, Articles" showon="exclude_include_articles:0,1" />
+                                <field name="callout_excludeContent_end" type="callout" end="1" />
+                                <field name="callout_excludeK2Content_start" type="callout" class="bs-callout k2-callout" start="1" label="AMPZ_EXCL_JOOMLA_CONTENT, K2" />
+                                    <field name="note_excludeK2Categories" type="note4" text="AMPZ_EXCL_JOOMLA_NOTE, K2 categories" />
+                                    <field name="exclude_includeK2Categories" type="radio" class="btn-group" default="" label="AMPZ_EXCLUDE_INCLUDE, K2 Categories" description="AMPZ_EXCLUDE_INCLUDE_DESC">
+                    					<option value="">AMPZ_IGNORE</option>
+                                        <option value="0">AMPZ_EXCLUDE</option>
+                                        <option value="1">AMPZ_INCLUDE</option>
+                    				</field>
+                                    <field name="excludeK2Categories" type="rh_k2categories" multiple="true" default="" label="AMPZ_EXCL_SELECT, K2 categories" description="AMPZ_EXCLUDE_INCLUDE_DESC, K2 categories"  showon="exclude_includeK2Categories:0,1" />
+                                    <field name="note_excludeK2Articles" type="note4" text="AMPZ_EXCL_JOOMLA_NOTE, K2 articles" />
+                                    <field name="exclude_includeK2Articles" type="radio" class="btn-group" default="" label="AMPZ_EXCLUDE_INCLUDE, K2 Articles" description="AMPZ_EXCLUDE_INCLUDE_DESC">
+                                        <option value="">AMPZ_IGNORE</option>
+                                        <option value="0">AMPZ_EXCLUDE</option>
+                                        <option value="1">AMPZ_INCLUDE</option>
+                                    </field>
+                                    <field name="excludeK2Articles" type="rh_k2articles" multiple="true" default="" label="AMPZ_EXCL_SELECT, K2 articles" description="AMPZ_EXCLUDE_INCLUDE_DESC, K2 articles" showon="exclude_includeK2Articles:0,1" />
+                                <field name="callout_excludeK2Content_end" type="callout" end="1" />
+                                <field name="callout_excludeZooContent_start" type="callout" class="bs-callout zoo-callout" start="1" label="AMPZ_EXCL_ZOO_CONTENT" />
+                                    <field name="note_excludeZooCategories" type="note4" text="AMPZ_EXCL_ZOO_CAT_NOTE" />
+                                    <field name="excludeZooCategories" type="rh_zoocategories" multiple="true" default="" label="AMPZ_EXCL_ZOO_CAT" description="AMPZ_EXCL_ZOO_CAT_DESC" />
+                                    <field name="note_excludeZooArticles" type="note4" text="AMPZ_EXCL_ZOO_ART_NOTE" />
+                                    <field name="excludeZooArticles" type="rh_zooarticles" multiple="true" default="" label="AMPZ_EXCL_ZOO_ART" description="AMPZ_EXCL_ZOO_ART_DESC" />
+                                <field name="callout_excludeZooContent_end" type="callout" end="1" />
+                            <field name="callout_publishingAssignments_end" type="callout" end="1" />
+                            <field name="callout_00_start" type="callout" location_link="location_0" class="bs-callout-primary" start="1" label="AMPZ_INLINE_SETTINGS" />
+                                <field name="inlineTopBottom" type="list" default="inline_top_bottom" label="AMPZ_DISPLAY_ON" description="AMPZ_INLINE_TOP_BOTTOM">
+                                    <option value="inline_top">AMPZ_TOP_ART</option>
+                                    <option value="inline_bottom">AMPZ_BOTTOM_ART</option>
+                                    <option value="inline_top_bottom">AMPZ_TOP_BOTTOM_ART</option>
+                                </field>
+                                <field name="inlineTopAboveTitle" type="rh_fancycheckbox" label="AMPZ_DISPLAY_ABOVE_TITLE" class="labelauty_icon" description="AMPZ_DISPLAY_ABOVE_TITLE_DESC" value="1"  />
+                                <field name="inlineDisplayAs" type="list" default="direct_buttons" label="AMPZ_DISPLAY_AS" description="AMPZ_DISPLAY_AS_DESC">
+                                    <option value="direct_buttons">AMPZ_DIRECT_BUTTONS</option>
+                                    <option value="click_for_buttons">AMPZ_CLICK_FOR_BUTTONS</option>
+                                </field>
+                                <field name="clickToShareText" type="text" showon="inlineDisplayAs:click_for_buttons" label="AMPZ_CLICK_SHARE_TEXT" default="Share Article" />
+                                <field name="colorClickToShareText" default="#333" type="color" showon="inlineDisplayAs:click_for_buttons" label="AMPZ_COLOR_CLICK_SHARE_TEXT" description="AMPZ_COOKIE_DURATION_DESC" size="6" />
+                                <field name="colorClickToShareBackgroundShareIcon" type="color" default="#FFA200" showon="inlineDisplayAs:click_for_buttons" label="AMPZ_COLOR_CLICK_SHARE_BG_ICON" />
+                                <field name="inlineIconOnly" type="rh_fancycheckbox" label="AMPZ_INLINE_ICON_ONLY" class="labelauty_icon" description="AMPZ_INLINE_ICON_ONLY_DESC" value="1"  />
+                                <field name="inlineButtonWidth" type="list" default="auto" label="AMPZ_BUTTON_WIDTH" description="AMPZ_BUTTON_WIDTH_DESC">
+                                    <option value="auto">AMPZ_AUTO</option>
+                                    <option value="orig_width">AMPZ_ORIG_WIDTH</option>
+                                </field>
+                                <field name="entranceInline" type="list" default="fadeIn" label="AMPZ_ENTR_ANI" description="AMPZ_ENTR_ANI_DESC">
+                                    <option value="none">AMPZ_NONE</option>
+                                    <option value="bounceIn">Bounce In</option>
+                                    <option value="bounceInDown">Bounce In Down</option>
+                                    <option value="bounceInLeft">Bounce In Left</option>
+                                    <option value="bounceInRight">Bounce In Right</option>
+                                    <option value="bounceInUp">Bounce In Up</option>
+                                    <option value="fadeIn">Fade In</option>
+                                    <option value="fadeInDown">Fade In Down</option>
+                                    <option value="fadeInLeft">Fade In Left</option>
+                                    <option value="fadeInRight">Fade In Right</option>
+                                    <option value="fadeInUp">Fade In Up</option>
+                                    <option value="flipInX">Flip In X</option>
+                                    <option value="flipInY">Flip In Y</option>
+                                    <option value="slideInDown">Slide In Down</option>
+                                    <option value="slideInLeft">Slide In Left</option>
+                                    <option value="slideInRight">Slide In Right</option>
+                                    <option value="slideInUp">Slide In Up</option>
+                                </field>
+                                <field name="hoverEffectInline" type="list" default="none" label="AMPZ_HOVER_EFFECT" description="AMPZ_HOVER_EFFECT_DESC">
+                                    <option value="none">AMPZ_NONE</option>
+                                    <option value="hvr-lighten">Lighten</option>
+                                    <option value="hvr-grow">Grow</option>
+                                    <option value="hvr-pulse">Pulse</option>
+                                    <option value="hvr-float">Float</option>
+                                    <option value="hvr-wobble-vertical">Wobble Vertical</option>
+                                    <option value="hvr-wobble-horizontal">Wobble Horizontal</option>
+                                </field>
+                                <field name="inline_disable_expand_on_hover" type="rh_fancycheckbox" label="AMPZ_EXPAND_ON_HOVER" class="labelauty_icon" description="AMPZ_EXPAND_ON_HOVER_DESC" value="1"  />
+                                <field name="note_limit_inline_buttons" type="note4" text="AMPZ_LIMIT_BUTTONS_NOTE" />
+                                <field name="inline_no_buttons" type="list" default="4" label="AMPZ_NO_OF_BUTTONS" description="AMPZ_NO_BUTTONS_DESC">
+                                    <option value="1">AMPZ_BUTTON, 1</option>
+                                    <option value="2">AMPZ_BUTTONS, 2</option>
+                                    <option value="3">AMPZ_BUTTONS, 3</option>
+                                    <option value="4">AMPZ_BUTTONS, 4</option>
+                                    <option value="5">AMPZ_BUTTONS, 5</option>
+                                    <option value="6">AMPZ_BUTTONS, 6</option>
+                                    <option value="7">AMPZ_BUTTONS, 7</option>
+                                    <option value="8">AMPZ_BUTTONS, 8</option>
+                                </field>
+                                <field name="note_inline_max_width" type="note4" text="AMPZ_INLINE_MAX_WIDTH_DESC" />
+                                <field name="inline_container_max_width" type="rh_fancytext" label="AMPZ_INLINE_MAX_WIDTH" unit="px" default="0" description="AMPZ_INLINE_MAX_WIDTH_DESC" filter="integer" />
+                                <field name="note_inline_labels" type="note4" text="AMPZ_INLINE_LABELS_NOTE" />
+                                <field name="inline_display_labels" type="list" label="AMPZ_SHOW_LABELS" default="hover" description="AMPZ_SHOW_LABELS_DESC" value="1">
+                                    <option value="no">AMPZ_NO</option>
+                                    <option value="hover">AMPZ_HOVER</option>
+                                    <option value="yes">AMPZ_YES</option>
+                                </field>
+                                <field name="inline_share_counts" type="rh_fancycheckbox" label="AMPZ_SHOW_COUNTS" class="labelauty_icon" description="AMPZ_SHOW_COUNTS_DESC" value="1"  />
+                                <field name="inline_total_shares" type="rh_fancycheckbox" label="AMPZ_SHOW_TOTAL" class="labelauty_icon" description="AMPZ_SHOW_TOTAL_DESC" value="1"  />
+                                <field name="inline_color_total_shares" type="color" default="#333" label="AMPZ_COLOR_TOTAL" description="AMPZ_COLOR_TOTAL_DESC" />
+                                <!--<field name="inline_spacing" type="rh_fancycheckbox" label="Spacing Between Buttons" class="labelauty_icon" description="Add spacing between the buttons or leave them attached to each other" value="1"  />-->
+                                <field name="inline_frontpage_display" type="rh_fancycheckbox" label="AMPZ_SHOW_FRONTPAGE" class="labelauty_icon" description="AMPZ_SHOW_FRONTPAGE_DESC" value="1"  />
+                                <field name="inline_mobile_display" type="rh_fancycheckbox" label="AMPZ_SHOW_MOBILE" class="labelauty_icon" description="AMPZ_SHOW_MOBILE_DESC, Inline" value="1"  />
+                                <field name="title_inline_above_buttons" type="text" default="" label="AMPZ_TITLE_INLINE" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_2" type="text" showon="num_langs:2,3,4,5,6,7,8" default="" label="AMPZ_TITLE_INLINE_LANG, 2" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_3" type="text" showon="num_langs:3,4,5,6,7,8" default="" label="AMPZ_TITLE_INLINE_LANG, 3" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_4" type="text" showon="num_langs:4,5,6,7,8" default="" label="AMPZ_TITLE_INLINE_LANG, 4" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_5" type="text" showon="num_langs:5,6,7,8" default="" label="AMPZ_TITLE_INLINE_LANG, 5" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_6" type="text" showon="num_langs:6,7,8" default="" label="AMPZ_TITLE_INLINE_LANG, 6" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_7" type="text" showon="num_langs:7,8" default="" label="AMPZ_TITLE_INLINE_LANG, 7" description="AMPZ_TITLE_INLINE_DESC" />
+                                <field name="title_inline_above_buttons_8" type="text" showon="num_langs:8" default="" label="AMPZ_TITLE_INLINE_LANG, 8" description="AMPZ_TITLE_INLINE_DESC" />
+
+                                <field name="note_include_inline" type="note4" text="AMPZ_DISPLAY_IN_COMP_OVERRIDE_NOTE" />
+
+                                <field name="includeComponentsInline" type="rh_components4" multiple="multiple"
+					                layout="joomla.form.field.list-fancy-select"  admin="0"
+                                show_content="1" default="" label="AMPZ_DISPLAY_IN_COMP_OVERRIDE" description="AMPZ_DISPLAY_IN_COMP_OVERRIDE_DESC" />
+
+                            <field name="callout_00_end" type="callout" end="1" />
+                            <field name="callout_01_start" type="callout" location_link="location_1" class="bs-callout-primary" start="1"
+                                   label="AMPZ_SIDEBAR_SETTINGS" />
+                               <field name="positionSideBar" type="list" default="left" label="AMPZ_POSITION_SCREEN" description="AMPZ_POSITION_SCREEN_SIDEBAR">
+                                   <option value="left">AMPZ_LEFT</option>
+                                   <option value="right">AMPZ_RIGHT</option>
+                               </field>
+                               <field name="note_sidebar_share_follow" type="note4" text="AMPZ_SHARE_OR_FOLLOW_NOTE" />
+                               <field name="sidebar_share_follow" type="list" label="AMPZ_SHARE_OR_FOLLOW" default="share" description="AMPZ_SHARE_OR_FOLLOW_NOTE" value="1">
+                                   <option value="follow">AMPZ_FOLLOW_BUTTONS</option>
+                                   <option value="share">AMPZ_SHARE_BUTTONS</option>
+                               </field>
+                               <field name="sidebar_margin" type="rh_fancycheckbox" label="AMPZ_ADD_MARGIN" class="labelauty_icon" description="AMPZ_ADD_MARGIN_DESC" value="1"  />
+                                <field name="entranceSideBar" type="list" default="bounceInLeft" label="AMPZ_ENTR_ANI" description="AMPZ_ENTR_ANI_DESC">
+                                    <option value="none">AMPZ_NONE</option>
+                                    <option value="bounceIn">Bounce In</option>
+                                    <option value="bounceInDown">Bounce In Down</option>
+                                    <option value="bounceInLeft">Bounce In Left</option>
+                                    <option value="bounceInRight">Bounce In Right</option>
+                                    <option value="bounceInUp">Bounce In Up</option>
+                                    <option value="fadeIn">Fade In</option>
+                                    <option value="fadeInDown">Fade In Down</option>
+                                    <option value="fadeInLeft">Fade In Left</option>
+                                    <option value="fadeInRight">Fade In Right</option>
+                                    <option value="fadeInUp">Fade In Up</option>
+                                    <option value="flipInX">Flip In X</option>
+                                    <option value="flipInY">Flip In Y</option>
+                                    <option value="slideInDown">Slide In Down</option>
+                                    <option value="slideInLeft">Slide In Left</option>
+                                    <option value="slideInRight">Slide In Right</option>
+                                    <option value="slideInUp">Slide In Up</option>
+                                </field>
+                                <field name="note_sidebar_visibility" type="note4" text="AMPZ_VISI_SIDEBAR_DESC" />
+                                <field name="visibilitySideBar" type="list" default="inline" label="AMPZ_VISI" description="AMPZ_VISI_SIDEBAR_DESC">
+                                    <option value="inline">AMPZ_INLINE</option>
+                                    <option value="always">AMPZ_ALL_TIME</option>
+                                </field>
+                                <field name="sidebar_start_closed" type="rh_fancycheckbox" label="AMPZ_START_CLOSED" class="labelauty_icon" description="AMPZ_START_CLOSED_DESC" value="1"  />
+                                <field name="hoverEffectSideBar" type="list" default="hvr-grow" label="AMPZ_HOVER_EFFECT" description="AMPZ_HOVER_EFFECT_DESC">
+                                    <option value="none">AMPZ_NONE</option>
+                                    <option value="hvr-lighten">Lighten</option>
+                                    <option value="hvr-grow">Grow</option>
+                                    <option value="hvr-pulse">Pulse</option>
+                                    <option value="hvr-float">Float</option>
+                                    <option value="hvr-wobble-vertical">Wobble Vertical</option>
+                                    <option value="hvr-wobble-horizontal">Wobble Horizontal</option>
+                                </field>
+                                <field name="note_limit_sidebar_buttons" type="note4" text="AMPZ_LIMIT_BUTTONS_NOTE" />
+                                <field name="sidebar_no_buttons" type="list" default="4" label="AMPZ_NO_OF_BUTTONS" description="AMPZ_NO_BUTTONS_DESC">
+                                    <option value="1">AMPZ_BUTTON, 1</option>
+                                    <option value="2">AMPZ_BUTTONS, 2</option>
+                                    <option value="3">AMPZ_BUTTONS, 3</option>
+                                    <option value="4">AMPZ_BUTTONS, 4</option>
+                                    <option value="5">AMPZ_BUTTONS, 5</option>
+                                    <option value="6">AMPZ_BUTTONS, 6</option>
+                                    <option value="7">AMPZ_BUTTONS, 7</option>
+                                    <option value="8">AMPZ_BUTTONS, 8</option>
+                                </field>
+                                <field name="sidebar_share_counts" type="rh_fancycheckbox" label="AMPZ_SHOW_COUNTS" class="labelauty_icon" description="AMPZ_SHOW_COUNTS_DESC" value="1"  />
+                                <field name="sidebar_total_shares" type="rh_fancycheckbox" label="AMPZ_SHOW_TOTAL" class="labelauty_icon" description="AMPZ_SHOW_TOTAL_DESC" value="1"  />
+                                <field name="sidebar_color_total_shares" type="color" default="#333" label="AMPZ_COLOR_TOTAL" description="AMPZ_COLOR_TOTAL_DESC" />
+                                <field name="sidebar_frontpage_display" type="rh_fancycheckbox" label="AMPZ_SHOW_FRONTPAGE" class="labelauty_icon" description="AMPZ_SHOW_FRONTPAGE_DESC" value="1" />
+                                <field name="sidebar_mobile_display" type="rh_fancycheckbox" label="AMPZ_SHOW_MOBILE" class="labelauty_icon" description="AMPZ_SHOW_MOBILE_DESC, Sidebar" value="1"  />
+                                <field name="note_include_sidebar" type="note4" text="AMPZ_DISPLAY_IN_COMP_OVERRIDE_NOTE" />
+                                <field name="includeComponentsSidebar" type="rh_components4" multiple="multiple"
+					                layout="joomla.form.field.list-fancy-select"  admin="0" show_content="1" default="" label="AMPZ_DISPLAY_IN_COMP_OVERRIDE" description="AMPZ_DISPLAY_IN_COMP_OVERRIDE_DESC" />
+                            <field name="callout_01_end" type="callout" end="1" />
+                            <field name="callout_02_start" type="callout" location_link="location_2" class="bs-callout-primary" start="1"
+                                   label="AMPZ_FLYIN_SETTINGS" />
+                               <field name="note_flyin_share_follow" type="note4" text="AMPZ_SHARE_OR_FOLLOW_NOTE" />
+                               <field name="flyin_share_follow" type="list" label="AMPZ_SHARE_OR_FOLLOW" default="follow" description="AMPZ_SHARE_OR_FOLLOW_NOTE" value="1">
+                                   <option value="follow">AMPZ_FOLLOW_BUTTONS</option>
+                                   <option value="share">AMPZ_SHARE_BUTTONS</option>
+                               </field>
+                               <field name="headingFlyIn" type="text" label="AMPZ_TITLE" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_TITLE_LANG, 2" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_TITLE_LANG, 3" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_TITLE_LANG, 4" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_TITLE_LANG, 5" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_6" type="text" showon="num_langs:6,7,8" label="AMPZ_TITLE_LANG, 6" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_7" type="text" showon="num_langs:7,8" label="AMPZ_TITLE_LANG, 7" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="headingFlyIn_8" type="text" showon="num_langs:8" label="AMPZ_TITLE_LANG, 8" default="Like what you see?" description="Hit the buttons below to follow us." />
+                               <field name="textFlyIn" type="textarea" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_2" type="textarea" showon="num_langs:2,3,4,5,6,7,8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 2" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_3" type="textarea" showon="num_langs:3,4,5,6,7,8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 3" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_4" type="textarea" showon="num_langs:4,5,6,7,8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 4" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_5" type="textarea" showon="num_langs:5,6,7,8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 5" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_6" type="textarea" showon="num_langs:6,7,8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 3" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_7" type="textarea" showon="num_langs:7,8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 4" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                               <field name="textFlyIn_8" type="textarea" showon="num_langs:8" default="Hit the buttons below to follow us, you won't regret it..." label="AMPZ_TEXT_BELOW_LANG, 5" description="AMPZ_FLYIN_TEXT_DESC" rows="4" cols="6" filter="raw"/>
+                                <field name="positionFlyin" type="list" default="right" label="AMPZ_POSITION_SCREEN" description="AMPZ_POSITION_SCREEN_FLYIN">
+                                    <option value="right">AMPZ_RIGHT</option>
+                                    <option value="left">AMPZ_LEFT</option>
+                                </field>
+                                 <field name="entranceFlyIn" type="list" default="bounceInUp" label="AMPZ_ENTR_ANI" description="AMPZ_ENTR_ANI_FLYIN">
+                                    <option value="bounceIn">Bounce In</option>
+                                    <option value="bounceInDown">Bounce In Down</option>
+                                    <option value="bounceInLeft">Bounce In Left</option>
+                                    <option value="bounceInRight">Bounce In Right</option>
+                                    <option value="bounceInUp">Bounce In Up</option>
+                                    <option value="fadeIn">Fade In</option>
+                                    <option value="fadeInDown">Fade In Down</option>
+                                    <option value="fadeInLeft">Fade In Left</option>
+                                    <option value="fadeInRight">Fade In Right</option>
+                                    <option value="fadeInUp">Fade In Up</option>
+                                    <option value="flipInX">Flip In X</option>
+                                    <option value="flipInY">Flip In Y</option>
+                                    <option value="slideInDown">Slide In Down</option>
+                                    <option value="slideInLeft">Slide In Left</option>
+                                    <option value="slideInRight">Slide In Right</option>
+                                    <option value="slideInUp">Slide In Up</option>
+                                </field>
+                                <field name="hoverEffectFlyIn" type="list" default="hvr-lighten" label="AMPZ_HOVER_EFFECT" description="AMPZ_HOVER_EFFECT_DESC">
+                                    <option value="none">None</option>
+                                    <option value="hvr-lighten">Lighten</option>
+                                    <option value="hvr-grow">Grow</option>
+                                    <option value="hvr-pulse">Pulse</option>
+                                    <option value="hvr-float">Float</option>
+                                    <option value="hvr-wobble-vertical">Wobble Vertical</option>
+                                    <option value="hvr-wobble-horizontal">Wobble Horizontal</option>
+                                </field>
+                                <!--<field name="note_limit_flyin_buttons" type="note4" text="AMPZ_LIMIT_BUTTONS_NOTE" />
+                                <field name="flyin_no_buttons" type="rh_fancytext" label="AMPZ_NO_OF_BUTTONS" unit="AMPZ_NO_OF_BUTTONS_LABEL" default="4" description="AMPZ_NO_OF_BUTTONS_DESC" filter="integer" />-->
+                                <!--<field name="flyin_icon_only" type="rh_fancycheckbox" label="AMPZ_SHOW_LABELS" class="labelauty_icon" description="AMPZ_SHOW_LABELS_DESC" value="1" />-->
+                                <!--<field name="flyin_share_counts" type="rh_fancycheckbox" label="AMPZ_SHOW_COUNTS" class="labelauty_icon" description="AMPZ_SHOW_COUNTS_DESC" value="1"  />-->
+                                <field name="flyin_frontpage_display" type="rh_fancycheckbox" label="AMPZ_SHOW_FRONTPAGE" class="labelauty_icon" description="AMPZ_SHOW_FRONTPAGE_DESC" value="1"  />
+                                <field name="flyin_mobile_display" type="rh_fancycheckbox" label="AMPZ_SHOW_MOBILE" class="labelauty_icon" description="AMPZ_SHOW_MOBILE_DESC, Fly In" value="1"  />
+                                <field name="note_include_flyin" type="note4" text="AMPZ_DISPLAY_IN_COMP_OVERRIDE_NOTE" />
+                                <field name="includeComponentsFlyIn" type="rh_components4" multiple="multiple"
+					                layout="joomla.form.field.list-fancy-select"  admin="0" show_content="1" default="" label="AMPZ_DISPLAY_IN_COMP_OVERRIDE" description="AMPZ_DISPLAY_IN_COMP_OVERRIDE_DESC" />
+                                <field name="callout_flyin_trigger_start" type="callout" class="bs-callout" start="1" label="AMPZ_FLYIN_TRIGGER_SETTINGS" />
+                                    <field name="note_flyin_trigger" type="note4" text="AMPZ_FLYIN_TRIGGER_NOTE" />
+                                    <field name="flyin_trigger_bottom" type="rh_fancycheckbox" label="AMPZ_SHOW_PAGE_BOTTOM" class="labelauty_icon" description="AMPZ_SHOW_PAGE_BOTTOM_DESC" value="1"  />
+                                    <field name="flyin_trigger_time" type="rh_fancycheckbox" label="AMPZ_SHOW_SECONDS" class="labelauty_icon" description="AMPZ_SHOW_SECONDS_DESC" value="1"  />
+                                    <field name="flyin_trigger_time_seconds" type="rh_fancytext" label="AMPZ_DISPLAY_AFTER" default="10" unit="AMPZ_SECONDS" description="AMPZ_SECONDS_DESC" filter="integer" />
+                                    <field name="cookietype" type="list" default="minutes" label="AMPZ_STAY_CLOSED_FOR" description="AMPZ_STAY_CLOSED_FOR_DESC">
+                                            <option value="never">Never</option>
+                                            <option value="1">Seconds</option>
+                                            <option value="60">Minutes</option>
+                                            <option value="3600">Hours</option>
+                                            <option value="86400">Days</option>
+                                            <option value="session">Session</option>
+                                            <option value="ever">Ever</option>
+                                    </field>
+                                    <field name="cookie_duration" default="5" type="text" showon="cookietype:1,60,3600,86400" label="AMPZ_COOKIE_DURATION" description="AMPZ_COOKIE_DURATION_DESC" size="6" />
+                               <field name="callout_flyin_trigger_end" type="callout" end="1" />
+                            <field name="callout_02_end" type="callout" end="1" />
+                        <field name="tab1_end" type="rh_tab" end="1" />
+                        <field name="tab2_start" type="rh_tab" id="networks" title="AMPZ_SELECT_NETWORKS_TITLE" doclink="https://docs.roosterz.nl/ampz/configuration/networks" start="1" />
+                            <field name="AMPZ_NETWORKS_SELECT" type="rh_fancysort" >
+                                <option value="btn_facebook_00" labels="Facebook" network="facebook" class="labelauty_small"></option>
+                                <option value="btn_twitter_01" labels="Twitter" network="twitter" class="labelauty_small"></option>
+                                <option value="btn_whatsapp_02" labels="WhatsApp" network="whatsapp" class="labelauty_small"></option>
+                                <option value="btn_linkedin_04" labels="LinkedIn" network="linkedin" class="labelauty_small"></option>
+                                <option value="btn_pinterest_05" labels="Pinterest" network="pinterest" class="labelauty_small"></option>
+                                <option value="btn_telegram_06" labels="Telegram" network="telegram" class="labelauty_small"></option>
+                                <option value="btn_email_07" labels="Email" network="email" class="labelauty_small"></option>
+                                <option value="btn_xing_08" labels="Xing" network="xing" class="labelauty_small"></option>
+                                <option value="btn_stumbleupon_09" labels="StumbleUpon" network="stumbleupon" class="labelauty_small"></option>
+                                <option value="btn_tumblr_10" labels="Tumblr" network="tumblr" class="labelauty_small"></option>
+                                <option value="btn_flattr_11" labels="Flattr" network="flattr" class="labelauty_small"></option>
+                                <option value="btn_phone_12" labels="AMPZ_FOLLOW_ONLY, Phone" network="phone" class="labelauty_small"></option>
+                                <option value="btn_reddit_13" labels="Reddit" network="reddit" class="labelauty_small"></option>
+                                <option value="btn_print_14" labels="Print" network="print" class="labelauty_small"></option>
+                                <option value="btn_love_15" labels="Love" network="love" class="labelauty_small"></option>
+                                <option value="btn_vk_16" labels="VK" network="vk" class="labelauty_small"></option>
+                                <option value="btn_pocket_17" labels="Pocket" network="pocket" class="labelauty_small"></option>
+                                <option value="btn_buffer_18" labels="Buffer" network="buffer" class="labelauty_small"></option>
+                                <option value="btn_instagram_19" labels="AMPZ_FOLLOW_ONLY, Instagram" network="instagram" class="labelauty_small"></option>
+                                <option value="btn_youtube_20" labels="AMPZ_FOLLOW_ONLY, Youtube" network="youtube" class="labelauty_small"></option>
+                                <option value="btn_odnoklassniki_21" labels="Odnoklassniki" network="odnoklassniki" class="labelauty_small"></option>
+                                <option value="btn_houzz_22" labels="Houzz" network="houzz" class="labelauty_small"></option>
+                                <option value="btn_viber_23" labels="Viber" network="viber" class="labelauty_small"></option>
+                                <option value="btn_flipboard_24" labels="Flipboard" network="flipboard" class="labelauty_small"></option>
+                                <option value="btn_line_25" labels="Line" network="line" class="labelauty_small"></option>
+                                <option value="btn_fb-messenger_26" labels="Facebook Messenger" network="fb-messenger" class="labelauty_small"></option>
+                                <option value="btn_gmail_27" labels="GMail" network="gmail" class="labelauty_small"></option>
+                                <option value="btn_mix_28" labels="Mix" network="mix" class="labelauty_small"></option>
+                                <option value="btn_soundcloud_29" labels="AMPZ_FOLLOW_ONLY, Soundcloud" network="soundcloud" class="labelauty_small"></option>
+                                <option value="btn_spotify_30" labels="AMPZ_FOLLOW_ONLY, Spotify" network="spotify" class="labelauty_small"></option>
+                                <option value="btn_microsoft-teams_31" labels="Microsoft Teams" network="microsoft-teams" class="labelauty_small"></option>
+                                <option value="btn_blogger_32" labels="Blogger" network="blogger" class="labelauty_small"></option>
+                                <option value="btn_livejournal_33" labels="Livejournal" network="livejournal" class="labelauty_small"></option>
+                                <option value="btn_yummly_34" labels="Yummly" network="yummly" class="labelauty_small"></option>
+                                <option value="btn_mailru_35" labels="Mail.ru" network="mailru" class="labelauty_small"></option>
+                                <option value="btn_copy_36" labels="Copy Link" network="copy" class="labelauty_small"></option>
+                                <option value="btn_tiktok_37" labels="AMPZ_FOLLOW_ONLY, Tiktok" network="tiktok" class="labelauty_small"></option>
+                            </field>
+
+                            <field name="callout_facebook_start" type="callout" location_link="btn_facebook_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Facebook" />
+                                <field name="label_facebook" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook" />
+                                <field name="note_facebook_access_token" type="note4" text="AMPZ_FACEBOOK_ACCESS_TOKEN_NOTE" />
+                                <field name="facebook_access_token" type="text" label="Facebook Access Token" default="" description="AMPZ_FB_ACCESS_TOKEN" />
+                                <field name="note_follow_facebook" type="note4" text="AMPZ_FOLLOW_NOTE, Facebook" />
+                                <field name="label_facebook_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Like us on Facebook" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Facebook" />
+                                <field name="label_facebook_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Like us on Facebook" />
+                                <field name="label_facebook_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Like us on Facebook" />
+                                <field name="label_facebook_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Like us on Facebook" />
+                                <field name="label_facebook_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Like us on Facebook" />
+                                <field name="label_facebook_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Like us on Facebook" />
+                                <field name="label_facebook_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Like us on Facebook" />
+                                <field name="label_facebook_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Like us on Facebook" />
+                                <field name="facebook_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Facebook" default="https://www.facebook.com/YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Facebook" />
+                            <field name="callout_facebook_end" type="callout" end="1" />
+
+                            <field name="callout_twitter_start" type="callout" location_link="btn_twitter_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Twitter" />
+                                <field name="label_twitter" type="text" label="AMPZ_LABEL_BUTTON" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter " />
+                                <field name="label_twitter_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Tweet" description="AMPZ_LABEL_BUTTON_DESC, Twitter" />
+                                <field name="via_twitter" type="text" label="AMPZ_TWEET_VIA" description="AMPZ_TWITTER_VIA_DESC" />
+                                <field name="note_follow_twitter" type="note4" text="AMPZ_FOLLOW_NOTE, Twitter" />
+                                <field name="label_twitter_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Twitter" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Twitter" />
+                                <field name="label_twitter_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Twitter" />
+                                <field name="label_twitter_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Twitter" />
+                                <field name="label_twitter_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Twitter" />
+                                <field name="label_twitter_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Twitter" />
+                                <field name="label_twitter_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Twitter" />
+                                <field name="label_twitter_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Twitter" />
+                                <field name="label_twitter_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Twitter" />
+                                <field name="twitter_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Twitter" default="https://twitter.com/intent/user?screen_name=YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Twitter" />
+                            <field name="callout_twitter_end" type="callout" end="1" />
+
+                            <field name="callout_whatsapp_start" type="callout" location_link="btn_whatsapp_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, WhatsApp" />
+                                <field name="whatsapp_show_desktop" type="rh_fancycheckbox" label="AMPZ_HIDE_DESKTOP" class="labelauty_icon" description="AMPZ_HIDE_DESKTOP_DESC" value="1"  />
+                                <field name="label_whatsapp" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="label_whatsapp_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, WhatsApp" />
+                                <field name="note_follow_whatsapp" type="note4" text="AMPZ_WHATSAPP_CHAT_NOTE" />
+                                <field name="label_whatsapp_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Chat with us" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, whatsapp" />
+                                <field name="label_whatsapp_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Chat with us" />
+                                <field name="label_whatsapp_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Chat with us" />
+                                <field name="label_whatsapp_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Chat with us" />
+                                <field name="label_whatsapp_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Chat with us" />
+                                <field name="label_whatsapp_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Chat with us" />
+                                <field name="label_whatsapp_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Chat with us" />
+                                <field name="label_whatsapp_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Chat with us" />
+                                <field name="whatsapp_follow" type="text" label="AMPZ_WHATSAPP_NUMBER" default="https://api.whatsapp.com/send?phone=YOURPAGE" description="AMPZ_WHATSAPP_NUMBER_NOTE" />
+                            <field name="callout_whatsapp_end" type="callout" end="1" />
+
+                            <field name="callout_linkedin_start" type="callout" location_link="btn_linkedin_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, LinkedIn" />
+                                <field name="label_linkedin" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn " />
+                                <field name="label_linkedin_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, LinkedIn" />
+                                <field name="note_follow_linkedin" type="note4" text="AMPZ_FOLLOW_NOTE, LinkedIn" />
+                                <field name="label_linkedin_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on LinkedIn" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, LinkedIn" />
+                                <field name="label_linkedin_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on LinkedIn" />
+                                <field name="label_linkedin_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on LinkedIn" />
+                                <field name="label_linkedin_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on LinkedIn" />
+                                <field name="label_linkedin_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on LinkedIn" />
+                                <field name="label_linkedin_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on LinkedIn" />
+                                <field name="label_linkedin_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on LinkedIn" />
+                                <field name="label_linkedin_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on LinkedIn" />
+                                <field name="linkedin_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, LinkedIn" default="https://www.linkedin.com/company/YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, LinkedIn" />
+                            <field name="callout_linkedin_end" type="callout" end="1" />
+
+                            <field name="callout_pinterest_start" type="callout" location_link="btn_pinterest_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Pinterest" />
+                                <field name="label_pinterest" type="text" label="AMPZ_LABEL_BUTTON" default="Pin" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pinterest" />
+                                <field name="note_follow_pinterest" type="note4" text="AMPZ_FOLLOW_NOTE, Pinterest" />
+                                <field name="label_pinterest_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Pinterest" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Pinterest" />
+                                <field name="label_pinterest_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Pinterest" />
+                                <field name="label_pinterest_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Pinterest" />
+                                <field name="label_pinterest_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Pinterest" />
+                                <field name="label_pinterest_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Pinterest" />
+                                <field name="label_pinterest_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Pinterest" />
+                                <field name="label_pinterest_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Pinterest" />
+                                <field name="label_pinterest_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Pinterest" />
+                                <field name="pinterest_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Pinterest" default="https://pinterest.com/YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Pinterest" />
+                            <field name="callout_pinterest_end" type="callout" end="1" />
+
+                            <field name="callout_telegram_start" type="callout" location_link="btn_telegram_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Telegram" />
+                                <field name="telegram_show_desktop" type="rh_fancycheckbox" label="AMPZ_HIDE_DESKTOP" class="labelauty_icon" description="AMPZ_HIDE_DESKTOP_DESC" value="1"  />
+                                <field name="label_telegram" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram " />
+                                <field name="label_telegram_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Telegram" />
+                                <field name="note_follow_telegram" type="note4" text="AMPZ_FOLLOW_NOTE, Telegram" />
+                                <field name="label_telegram_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Telegram" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Telegram" />
+                                <field name="label_telegram_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Telegram" />
+                                <field name="label_telegram_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Telegram" />
+                                <field name="label_telegram_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Telegram" />
+                                <field name="label_telegram_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Telegram" />
+                                <field name="label_telegram_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Telegram" />
+                                <field name="label_telegram_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Telegram" />
+                                <field name="label_telegram_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Telegram" />
+                                <field name="telegram_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Telegram" default="https://tchannels.me/c/YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Telegram" />
+                            <field name="callout_telegram_end" type="callout" end="1" />
+
+                            <field name="callout_email_start" type="callout" location_link="btn_email_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Email" />
+                                <field name="label_email" type="text" label="AMPZ_LABEL_BUTTON" default="Email" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="label_email_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Email" />
+                                <field name="subject_email" type="text" label="AMPZ_EMAIL_SUBJECT" default="Check out this page: " description="What should the subject of the email be that is to be sent?" />
+                            <field name="callout_email_end" type="callout" end="1" />
+
+                            <field name="callout_xing_start" type="callout" location_link="btn_xing_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Xing" />
+                            <field name="label_xing" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="label_xing_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Xing" />
+                            <field name="note_follow_xing" type="note4" text="AMPZ_FOLLOW_NOTE, Xing" />
+                            <field name="label_xing_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Xing" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Xing" />
+                            <field name="label_xing_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Xing" />
+                            <field name="label_xing_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Xing" />
+                            <field name="label_xing_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Xing" />
+                            <field name="label_xing_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Xing" />
+                            <field name="label_xing_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Xing" />
+                            <field name="label_xing_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Xing" />
+                            <field name="label_xing_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Xing" />
+                            <field name="xing_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Xing" default="https://www.xing.com/profile/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Xing" />
+                            <field name="callout_xing_end" type="callout" end="1" />
+
+                            <field name="callout_stumbleupon_start" type="callout" location_link="btn_stumbleupon_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, StumbleUpon" />
+                            <field name="label_stumbleupon" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="label_stumbleupon_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, StumbleUpon" />
+                            <field name="callout_stumbleupon_end" type="callout" end="1" />
+
+                            <field name="callout_tumblr_start" type="callout" location_link="btn_tumblr_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Tumblr" />
+                            <field name="label_tumblr" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="label_tumblr_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Tumblr" />
+                            <field name="callout_tumblr_end" type="callout" end="1" />
+
+                            <field name="callout_flattr_start" type="callout" location_link="btn_flattr_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Flattr" />
+                            <field name="label_flattr" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="label_flattr_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flattr" />
+                            <field name="flattr_username" type="text" label="AMPZ_FLATTR_USERNAME" default="" description="AMPZ_FLATTR_USERNAME_DESC" />
+                            <field name="callout_flattr_end" type="callout" end="1" />
+
+                            <field name="callout_phone_start" type="callout" location_link="btn_phone_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Phone" />
+                            <field name="label_phone_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="label_phone_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Call Us" description="AMPZ_LABEL_BUTTON_DESC, Phone" />
+                            <field name="note_phone_number" type="note4" text="AMPZ_PHONE_NUMBER_NOTE" />
+                            <field name="phone_follow" type="text" label="AMPZ_PHONE_NUMBER" default="tel:+3100000000" description="AMPZ_PHONE_NUMBER_DESC" />
+                            <field name="callout_phone_end" type="callout" end="1" />
+
+                            <field name="callout_reddit_start" type="callout" location_link="btn_reddit_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Reddit" />
+                            <field name="label_reddit" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="label_reddit_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Reddit" />
+                            <field name="callout_reddit_end" type="callout" end="1" />
+
+                            <field name="callout_print_start" type="callout" location_link="btn_print_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Print" />
+                                <field name="label_print" type="text" label="AMPZ_LABEL_BUTTON" default="Print" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                                <field name="label_print_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Print" />
+                            <field name="callout_print_end" type="callout" end="1" />
+
+                            <field name="callout_love_start" type="callout" location_link="btn_love_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Love" />
+                                <field name="label_love" type="text" label="AMPZ_LABEL_BUTTON" default="Love" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="label_love_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Love" />
+                                <field name="love_title" type="text" label="AMPZ_LOVE_TITLE" default="Thanks for your Love!" description="AMPZ_LOVE_TITLE_DESC, Love" />
+                            <field name="callout_love_end" type="callout" end="1" />
+
+                            <field name="callout_vk_start" type="callout" location_link="btn_vk_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, VK" />
+                                <field name="label_vk" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="label_vk_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, VK" />
+                                <field name="note_follow_vk" type="note4" text="AMPZ_FOLLOW_NOTE, VK" />
+                                <field name="label_vk_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on VK" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, VK" />
+                                <field name="label_vk_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on VK" />
+                                <field name="label_vk_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on VK" />
+                                <field name="label_vk_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on VK" />
+                                <field name="label_vk_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on VK" />
+                                <field name="label_vk_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on VK" />
+                                <field name="label_vk_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on VK" />
+                                <field name="label_vk_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on VK" />
+                                <field name="vk_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, VK" default="https://vk.com/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, VK" />
+                            <field name="callout_vk_end" type="callout" end="1" />
+
+                            <field name="callout_pocket_start" type="callout" location_link="btn_pocket_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Pocket" />
+                                <field name="label_pocket" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                                <field name="label_pocket_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Pocket" />
+                            <field name="callout_pocket_end" type="callout" end="1" />
+
+                            <field name="callout_buffer_start" type="callout" location_link="btn_buffer_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Buffer" />
+                                <field name="label_buffer" type="text" label="AMPZ_LABEL_BUTTON" default="Buffer" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                                <field name="label_buffer_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Buffer" />
+                            <field name="callout_buffer_end" type="callout" end="1" />
+
+                            <field name="callout_instagram_start" type="callout" location_link="btn_instagram_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Instagram" />
+                                <field name="note_follow_instagram" type="note4" text="AMPZ_FOLLOW_NOTE, Instagram" />
+                                <field name="label_instagram_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Instagram" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Instagram" />
+                                <field name="label_instagram_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Instagram" />
+                                <field name="label_instagram_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Instagram" />
+                                <field name="label_instagram_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Instagram" />
+                                <field name="label_instagram_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Instagram" />
+                                <field name="label_instagram_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Instagram" />
+                                <field name="label_instagram_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Instagram" />
+                                <field name="label_instagram_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Instagram" />
+                                <field name="instagram_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Instagram" default="https://www.instagram.com/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Instagram" />
+                            <field name="callout_instagram_end" type="callout" end="1" />
+
+                            <field name="callout_youtube_start" type="callout" location_link="btn_youtube_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Youtube" />
+                                <field name="note_follow_youtube" type="note4" text="AMPZ_FOLLOW_NOTE, Youtube" />
+                                <field name="label_youtube_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Youtube" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Youtube" />
+                                <field name="label_youtube_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Youtube" />
+                                <field name="label_youtube_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Youtube" />
+                                <field name="label_youtube_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Youtube" />
+                                <field name="label_youtube_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Youtube" />
+                                <field name="label_youtube_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Youtube" />
+                                <field name="label_youtube_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Youtube" />
+                                <field name="label_youtube_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Youtube" />
+                                <field name="youtube_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Youtube" default="https://www.youtube.com/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Youtube" />
+                            <field name="callout_youtube_end" type="callout" end="1" />
+
+                            <field name="callout_odnoklassniki_start" type="callout" location_link="btn_odnoklassniki_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Odnoklassniki" />
+                                <field name="label_odnoklassniki" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                                <field name="label_odnoklassniki_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Odnoklassniki" />
+                            <field name="callout_odnoklassniki_end" type="callout" end="1" />
+
+                            <field name="callout_houzz_start" type="callout" location_link="btn_houzz_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Houzz" />
+                                <field name="label_houzz" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Houzz" />
+                                <field name="note_follow_houzz" type="note4" text="AMPZ_FOLLOW_NOTE, Houzz" />
+                                <field name="label_houzz_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Houzz" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Houzz" />
+                                <field name="label_houzz_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Houzz" />
+                                <field name="label_houzz_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Houzz" />
+                                <field name="label_houzz_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Houzz" />
+                                <field name="label_houzz_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Houzz" />
+                                <field name="label_houzz_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Houzz" />
+                                <field name="label_houzz_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Houzz" />
+                                <field name="label_houzz_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Houzz" />
+                                <field name="houzz_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Houzz" default="https://www.houzz.com/user/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Houzz" />
+                            <field name="callout_houzz_end" type="callout" end="1" />
+
+                            <field name="callout_viber_start" type="callout" location_link="btn_viber_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Viber" />
+                                <field name="viber_show_desktop" type="rh_fancycheckbox" label="AMPZ_HIDE_DESKTOP" class="labelauty_icon" description="AMPZ_HIDE_DESKTOP_DESC" value="1"  />
+                                <field name="label_viber" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                                <field name="label_viber_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Viber" />
+                            <field name="callout_viber_end" type="callout" end="1" />
+
+                            <field name="callout_flipboard_start" type="callout" location_link="btn_flipboard_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Flipboard" />
+                                <field name="label_flipboard" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                                <field name="label_flipboard_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Flipboard" />
+                            <field name="callout_flipboard_end" type="callout" end="1" />
+
+                            <field name="callout_line_start" type="callout" location_link="btn_line_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Line" />
+                                <field name="line_show_desktop" type="rh_fancycheckbox" label="AMPZ_HIDE_DESKTOP" class="labelauty_icon" description="AMPZ_HIDE_DESKTOP_DESC" value="1"  />
+                                <field name="label_line" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                                <field name="label_line_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Line" />
+                            <field name="callout_line_end" type="callout" end="1" />
+
+                            <field name="callout_fb-messenger_start" type="callout" location_link="btn_fb-messenger_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Facebook Messenger" />
+                                <field name="fb-messenger_show_desktop" type="rh_fancycheckbox" label="AMPZ_HIDE_DESKTOP" class="labelauty_icon" description="AMPZ_HIDE_DESKTOP_DESC" value="1"  />
+                                <field name="note_facebook_messenger_app_id" type="note4" text="AMPZ_FACEBOOK_APP_ID_NOTE" />
+                                <field name="label_fb-messenger" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="label_fb-messenger_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Facebook Messenger" />
+                                <field name="note_follow_fb-messenger" type="note4" text="AMPZ_MESSENGER_CHAT_NOTE" />
+                                <field name="label_fb-messenger_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Chat with us" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, fb-messenger" />
+                                <field name="label_fb-messenger_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Chat with us" />
+                                <field name="label_fb-messenger_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Chat with us" />
+                                <field name="label_fb-messenger_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Chat with us" />
+                                <field name="label_fb-messenger_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Chat with us" />
+                                <field name="label_fb-messenger_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Chat with us" />
+                                <field name="label_fb-messenger_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Chat with us" />
+                                <field name="label_fb-messenger_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Chat with us" />
+                                <field name="fb-messenger_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Messenger" default="http://m.me/YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Facebook Messenger" />
+                            <field name="callout_fb-messenger_end" type="callout" end="1" />
+
+                            <field name="callout_gmail_start" type="callout" location_link="btn_gmail_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, GMail" />
+                                <field name="gmail_show_desktop" type="rh_fancycheckbox" label="AMPZ_HIDE_DESKTOP" class="labelauty_icon" description="AMPZ_HIDE_DESKTOP_DESC" value="1"  />
+                                <field name="label_gmail" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                                <field name="label_gmail_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, GMail" />
+                            <field name="callout_gmail_end" type="callout" end="1" />
+
+                            <field name="callout_mix_start" type="callout" location_link="btn_mix_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Mix" />
+                                <field name="label_mix" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                                <field name="label_mix_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mix" />
+                            <field name="callout_mix_end" type="callout" end="1" />
+
+                            <field name="callout_soundcloud_start" type="callout" location_link="btn_soundcloud_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Soundcloud" />
+                                <field name="note_follow_soundcloud" type="note4" text="AMPZ_FOLLOW_NOTE, Soundcloud" />
+                                <field name="label_soundcloud_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Soundcloud" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Soundcloud" />
+                                <field name="label_soundcloud_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Soundcloud" />
+                                <field name="label_soundcloud_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Soundcloud" />
+                                <field name="label_soundcloud_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Soundcloud" />
+                                <field name="label_soundcloud_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Soundcloud" />
+                                <field name="label_soundcloud_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Soundcloud" />
+                                <field name="label_soundcloud_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Soundcloud" />
+                                <field name="label_soundcloud_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Soundcloud" />
+                                <field name="soundcloud_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Soundcloud" default="https://soundcloud.com/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Soundcloud" />
+                            <field name="callout_soundcloud_end" type="callout" end="1" />
+
+                            <field name="callout_spotify_start" type="callout" location_link="btn_spotify_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Spotify" />
+                                <field name="note_follow_spotify" type="note4" text="AMPZ_FOLLOW_NOTE, Spotify" />
+                                <field name="label_spotify_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Spotify" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Spotify" />
+                                <field name="label_spotify_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Spotify" />
+                                <field name="label_spotify_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Spotify" />
+                                <field name="label_spotify_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Spotify" />
+                                <field name="label_spotify_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Spotify" />
+                                <field name="label_spotify_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Spotify" />
+                                <field name="label_spotify_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Spotify" />
+                                <field name="label_spotify_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Spotify" />
+                                <field name="spotify_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Spotify" default="https://open.spotify.com/artist/+YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Spotify" />
+                            <field name="callout_spotify_end" type="callout" end="1" />
+
+                            <field name="callout_microsoft-teams_start" type="callout" location_link="btn_microsoft-teams_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, microsoft-teams" />
+                                <field name="label_microsoft-teams" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                                <field name="label_microsoft-teams_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Microsoft Teams" />
+                            <field name="callout_microsoft-teams_end" type="callout" end="1" />
+
+                            <field name="callout_blogger_start" type="callout" location_link="btn_blogger_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Blogger" />
+                                <field name="label_blogger" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Blogger" />
+                                <field name="note_follow_blogger" type="note4" text="AMPZ_FOLLOW_NOTE, Blogger" />
+                                <field name="label_blogger_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Blogger" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Blogger" />
+                                <field name="label_blogger_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Blogger" />
+                                <field name="label_blogger_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Blogger" />
+                                <field name="label_blogger_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Blogger" />
+                                <field name="label_blogger_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Blogger" />
+                                <field name="label_blogger_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Blogger" />
+                                <field name="label_blogger_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Blogger" />
+                                <field name="label_blogger_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Blogger" />
+                                <field name="blogger_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Blogger" default="https://YOURPAGE.blogspot.com" description="AMPZ_FOLLOW_ADDRESS_NOTE, Blogger" />
+                            <field name="callout_blogger_end" type="callout" end="1" />
+
+                            <field name="callout_livejournal_start" type="callout" location_link="btn_livejournal_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Livejournal" />
+                                <field name="label_livejournal" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Livejournal" />
+                                <field name="note_follow_livejournal" type="note4" text="AMPZ_FOLLOW_NOTE, Livejournal" />
+                                <field name="label_livejournal_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Livejournal" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Livejournal" />
+                                <field name="label_livejournal_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Livejournal" />
+                                <field name="label_livejournal_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Livejournal" />
+                                <field name="label_livejournal_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Livejournal" />
+                                <field name="label_livejournal_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Livejournal" />
+                                <field name="label_livejournal_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Livejournal" />
+                                <field name="label_livejournal_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Livejournal" />
+                                <field name="label_livejournal_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Livejournal" />
+                                <field name="livejournal_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Livejournal" default="https://YOURPAGE.livejournal.com" description="AMPZ_FOLLOW_ADDRESS_NOTE, Livejournal" />
+                            <field name="callout_livejournal_end" type="callout" end="1" />
+
+                            <field name="callout_yummly_start" type="callout" location_link="btn_yummly_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Yummly" />
+                                <field name="label_yummly" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                                <field name="label_yummly_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Yummly" />
+                            <field name="callout_yummly_end" type="callout" end="1" />
+
+                            <field name="callout_mailru_start" type="callout" location_link="btn_mailru_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Mail.ru" />
+                                <field name="label_mailru" type="text" label="AMPZ_LABEL_BUTTON" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                                <field name="label_mailru_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Share" description="AMPZ_LABEL_BUTTON_DESC, Mail.ru" />
+                            <field name="callout_mailru_end" type="callout" end="1" />
+
+                            <field name="callout_copy_start" type="callout" location_link="btn_copy_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Copy" />
+                                <field name="label_copy" type="text" label="AMPZ_LABEL_BUTTON" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 2" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 3" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 4" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 5" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_BUTTON_LANG, 6" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_BUTTON_LANG, 7" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="label_copy_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_BUTTON_LANG, 8" default="Copy Link" description="AMPZ_LABEL_BUTTON_DESC, Copy" />
+                                <field name="copy_title" type="text" label="AMPZ_LOVE_TITLE" default="Link copied to clipboard!" description="AMPZ_LOVE_TITLE_DESC, Copy" />
+                            <field name="callout_copy_end" type="callout" end="1" />
+
+                            <field name="callout_tiktok_start" type="callout" location_link="btn_tiktok_settings" class="bs-callout-primary" start="1" label="AMPZ_SETTINGS, Tiktok" />
+                                <field name="note_follow_tiktok" type="note4" text="AMPZ_FOLLOW_NOTE, Tiktok" />
+                                <field name="label_tiktok_follow" type="text" label="AMPZ_LABEL_FOLLOW_BUTTON" default="Follow us on Tiktok" description="AMPZ_LABEL_FOLLOW_BUTTON_DESC, Tiktok" />
+                                <field name="label_tiktok_follow_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 2" default="Follow us on Tiktok" />
+                                <field name="label_tiktok_follow_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 3" default="Follow us on Tiktok" />
+                                <field name="label_tiktok_follow_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 4" default="Follow us on Tiktok" />
+                                <field name="label_tiktok_follow_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 5" default="Follow us on Tiktok" />
+                                <field name="label_tiktok_follow_6" type="text" showon="num_langs:6,7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 6" default="Follow us on Tiktok" />
+                                <field name="label_tiktok_follow_7" type="text" showon="num_langs:7,8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 7" default="Follow us on Tiktok" />
+                                <field name="label_tiktok_follow_8" type="text" showon="num_langs:8" label="AMPZ_LABEL_FOLLOW_BUTTON_LANG, 8" default="Follow us on Tiktok" />
+                                <field name="tiktok_follow" type="text" label="AMPZ_FOLLOW_ADDRESS, Tiktok" default="https://www.tiktok.com/@YOURPAGE" description="AMPZ_FOLLOW_ADDRESS_NOTE, Tiktok" />
+                            <field name="callout_tiktok_end" type="callout" end="1" />
+
+                        <field name="tab2_end" type="rh_tab" end="1" />
+
+                        <field name="tab3_start" type="rh_tab" id="design" title="AMPZ_DESIGN" doclink="https://docs.roosterz.nl/ampz/configuration/design" start="1" />
+
+                            <field name="callout_button_template_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_BUTTON_TEMPLATE" />
+                                <field name="buttonTemplate" type="rh_fancylist4" default="template_eindhoven" label="AMPZ_CHOOSE_BUTTON_TEMPLATE" description="AMPZ_CHOOSE_BUTTON_TEMPLATE_DESC">
+                                    <option value="template_amsterdam" labels="BUTTON_TEMPLATE_AMSTERDAM">Flat</option>
+                                    <option value="template_rotterdam" labels="BUTTON_TEMPLATE_ROTTERDAM">Grayish</option>
+                                    <option value="template_utrecht" labels="BUTTON_TEMPLATE_UTRECHT">Dark</option>
+                                    <option value="template_eindhoven" labels="BUTTON_TEMPLATE_EINDHOVEN">Modern</option>
+                                    <option value="template_bicolor" labels="BUTTON_TEMPLATE_BICOLOR">BiColor</option>
+                                    <option value="template_breda" labels="BUTTON_TEMPLATE_BREDA">Light</option>
+                                    <option value="template_minimal" labels="BUTTON_TEMPLATE_MINIMAL">Minimal</option>
+                            </field>
+
+                            <field name="callout_button_template_end" type="callout" end="1" />
+                            <field name="callout_font_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_FONT" />
+                                <field name="fontStyle" type="rh_fancylist4" default="Open Sans" label="AMPZ_CHOOSE_FONT" description="AMPZ_CHOOSE_FONT_DESC">
+                                    <option value="none">Use Website Font</option>
+                                    <option value="Open Sans">Open Sans</option>
+                                    <option value="Raleway">Raleway</option>
+                                    <option value="Arsenal">Arsenal</option>
+                                    <option value="Lato">Lato</option>
+                                    <option value="Roboto Condensed">Roboto Condensed</option>
+                                    <option value="Fira Sans Condensed">Fira Sans Condensed</option>
+                                    <option value="Oswald">Oswald</option>
+                            </field>
+
+                            <field name="callout_font_end" type="callout" end="1" />
+                            <field name="callout_other_design_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_OTHER_DESIGN" />
+                                <field name="buttonSize" type="list" default="ampz_btn_normal" label="AMPZ_BUTTON_SIZE" description="AMPZ_BUTTON_SIZE_DESC">
+                                    <option value="ampz_btn_very_small">AMPZ_VERY_SMALL</option>
+                                    <option value="ampz_btn_small">AMPZ_SMALL</option>
+                                    <option value="ampz_btn_normal">AMPZ_NORMAL</option>
+                                    <option value="ampz_btn_big">AMPZ_BIG</option>
+                                    <option value="ampz_btn_very_big">AMPZ_VERY_BIG</option>
+                                </field>
+                                <field name="roundedButtons" type="rh_fancycheckbox" label="AMPZ_ROUNDED_BUTTONS" class="labelauty_icon" description="AMPZ_ROUNDED_BUTTONS_DESC" value="1" default="0" />
+                            <field name="callout_other_design_end" type="callout" end="1" />
+                        <field name="tab3_end" type="rh_tab" end="1" />
+
+                        <field name="tab4_start" type="rh_tab" id="mobile" title="AMPZ_MOBILE_SETTINGS" doclink="https://docs.roosterz.nl/ampz/configuration/mobile" start="1" />
+                            <field name="callout_mobile_start" type="callout" class="bs-callout-primary" start="1" label="Mobile Mode" />
+                                <field name="AMPZ_MOBILE_DISPLAY, &lt;img src='../plugins/system/ampz/ampz/media/mobile_hover.png' class='ampz_right_clear' style='width:60px' &gt; &lt;/img &gt;, &lt;br /&gt;&lt;br /&gt;, &lt;br /&gt;, &lt;br /&gt;&lt;br /&gt;" type="note4" />
+                                <field name="mobileEnable" type="rh_fancycheckbox" label="AMPZ_ENABLE_MOBILE" class="labelauty_icon" description="AMPZ_ENABLE_MOBILE_DESC" value="1"  />
+                                <field name="note_mobile_share_follow" type="note4" text="AMPZ_SHARE_OR_FOLLOW_NOTE" />
+                                <field name="mobile_share_follow" type="list" label="AMPZ_SHARE_OR_FOLLOW" default="share" description="AMPZ_SHARE_OR_FOLLOW_NOTE" value="1">
+                                    <option value="follow">AMPZ_FOLLOW_BUTTONS</option>
+                                    <option value="share">AMPZ_SHARE_BUTTONS</option>
+                                </field>
+                                <field name="note_limit_mobile_buttons" type="note4" text="AMPZ_LIMIT_BUTTONS_NOTE" />
+                                <field name="mobile_no_buttons" type="list" default="4" label="AMPZ_NO_OF_BUTTONS" description="AMPZ_NO_BUTTONS_DESC">
+                                    <option value="1">AMPZ_BUTTON, 1</option>
+                                    <option value="2">AMPZ_BUTTONS, 2</option>
+                                    <option value="3">AMPZ_BUTTONS, 3</option>
+                                    <option value="4">AMPZ_BUTTONS, 4</option>
+                                    <option value="5">AMPZ_BUTTONS, 5</option>
+                                    <option value="6">AMPZ_BUTTONS, 6</option>
+                                    <option value="7">AMPZ_BUTTONS, 7</option>
+                                    <option value="8">AMPZ_BUTTONS, 8</option>
+                                </field>
+                                <field name="mobile_no_margin" type="rh_fancycheckbox" label="AMPZ_NO_MARGIN" class="labelauty_icon" description="AMPZ_NO_MARGIN_DESC" value="1"  />
+
+                                <field name="mobile_width" type="rh_fancytext" label="AMPZ_SWITCH_BELOW" unit="px" default="600" description="AMPZ_SWITCH_BELOW_DESC" />
+
+                                <!--<field name="mobile_enable_for" type="list" default="phones" label="AMPZ_MOBILE_ENABLED_FOR" description="AMPZ_MOBILE_ENABLED_FOR_DESC">
+                                    <option value="phones">Mobile Phones</option>
+                                    <option value="all">Mobile Phones &amp; Tablets</option>
+                                </field>-->
+                                <field name="entranceMobile" type="list" default="slideInUp" label="AMPZ_ENTR_ANI" description="AMPZ_ENTR_ANI_DESC_MOBILE">
+                                    <option value="none">AMPZ_NONE</option>
+                                    <option value="bounceIn">Bounce In</option>
+                                    <option value="bounceInDown">Bounce In Down</option>
+                                    <option value="bounceInLeft">Bounce In Left</option>
+                                    <option value="bounceInRight">Bounce In Right</option>
+                                    <option value="bounceInUp">Bounce In Up</option>
+                                    <option value="fadeIn">Fade In</option>
+                                    <option value="fadeInDown">Fade In Down</option>
+                                    <option value="fadeInLeft">Fade In Left</option>
+                                    <option value="fadeInRight">Fade In Right</option>
+                                    <option value="fadeInUp">Fade In Up</option>
+                                    <option value="flipInX">Flip In X</option>
+                                    <option value="flipInY">Flip In Y</option>
+                                    <option value="slideInDown">Slide In Down</option>
+                                    <option value="slideInLeft">Slide In Left</option>
+                                    <option value="slideInRight">Slide In Right</option>
+                                    <option value="slideInUp">Slide In Up</option>
+                                </field>
+                                <field name="mobile_frontpage_display" type="rh_fancycheckbox" label="AMPZ_SHOW_FRONTPAGE" class="labelauty_icon" description="AMPZ_SHOW_FRONTPAGE_DESC" value="1"  />
+                                <field name="note_mobile_visibility" type="note4" text="AMPZ_VISI_MOBILE_DESC" />
+                                <field name="visibilityMobile" type="list" default="inline" label="AMPZ_VISI" description="AMPZ_VISI_MOBILE_DESC">
+                                    <option value="inline">AMPZ_INLINE</option>
+                                    <option value="always">AMPZ_ALL_TIME</option>
+                                </field>
+                                <field name="note_mobile_share_counts" type="note4" text="AMPZ_SHOW_COUNTS_NOTE" />
+                                <field name="mobile_share_counts" type="rh_fancycheckbox" label="AMPZ_SHOW_COUNTS" class="labelauty_icon" description="AMPZ_SHOW_COUNTS_DESC" value="1"  />
+                                <field name="mobile_total_shares" type="rh_fancycheckbox" label="AMPZ_SHOW_TOTAL" class="labelauty_icon" description="AMPZ_SHOW_TOTAL" value="1"  />
+                                <field name="mobile_color_total_shares" type="color" default="#333" label="AMPZ_COLOR_TOTAL" description="AMPZ_COLOR_TOTAL_DESC" />
+                                <field name="mobile_color_div" type="color" default="#fff" label="AMPZ_COLOR_MOBILE" description="AMPZ_COLOR_MOBILE_DESC" />
+
+                                <field name="note_delay_mobile" type="note4" text="AMPZ_DELAY_MOBILE_NOTE" />
+                                <field name="mobile_delay" type="list" default="0" label="AMPZ_ENTR_DELAY" >
+                                        <option value="0">Use General Delay</option>
+                                        <option value="1">Specify Different Delay</option>
+                                </field>
+
+                                <field name="entrance_delay_mobile" type="rh_fancytext" label="AMPZ_ENTR_DELAY_TIME" showon="mobile_delay:1" default="1.5" unit="AMPZ_SECONDS" description="" filter="float" />
+
+                           <field name="callout_mobile_end" type="callout" end="1" />
+                       <field name="tab4_end" type="rh_tab" end="1" />
+
+                       <field name="tab5_start" type="rh_tab" id="generalsettings" title="AMPZ_GENERAL_SETTINGS" doclink="https://docs.roosterz.nl/ampz/configuration/general" start="1" />
+                                <field name="callout_total_shares_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_TOTAL_SHARES_SETTINGS" />
+                                <field name="label_total_shares" type="text" label="AMPZ_TOTAL_SHARES_LABEL" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_2" type="text" showon="num_langs:2,3,4,5,6,7,8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 2" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_3" type="text" showon="num_langs:3,4,5,6,7,8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 3" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_4" type="text" showon="num_langs:4,5,6,7,8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 4" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_5" type="text" showon="num_langs:5,6,7,8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 5" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_6" type="text" showon="num_langs:6,7,8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 6" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_7" type="text" showon="num_langs:7,8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 7" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="label_total_shares_8" type="text" showon="num_langs:8" label="AMPZ_TOTAL_SHARES_LABEL_LANG, 8" default="Shares" description="AMPZ_TOTAL_SHARES_LABEL_DESC" />
+                                <field name="threshold_total_shares" type="rh_fancytext" label="AMPZ_DISPLAY_IF_ABOVE" default="0" unit="AMPZ_SHARES" description="AMPZ_DISPLAY_IF_ABOVE_DESC" filter="integer" />
+                                <field name="callout_total_shares_end" type="callout" end="1" />
+                                <field name="callout_delay_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_DELAY_SETTINGS" />
+                                <field name="note_delay" type="note4" text="AMPZ_DELAY_NOTE" />
+                                <field name="entrance_delay" type="rh_fancytext" label="AMPZ_ENTR_DELAY" default="1.5" unit="AMPZ_SECONDS" description="" filter="float" />
+                                <field name="callout_delay_end" type="callout" end="1" />
+                                <field name="callout_language_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_LANG_SETTINGS" />
+                                <field name="num_langs" type="list" default="1" label="AMPZ_NUM_LANGS" description="AMPZ_NUM_LANGS_DESC">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </field>
+                                <field name="extra_lang_2" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 2" description="" showon="num_langs:2,3,4,5,6,7,8" />
+                                <field name="extra_lang_3" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 3" description="" showon="num_langs:3,4,5,6,7,8" />
+                                <field name="extra_lang_4" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 4" description="" showon="num_langs:4,5,6,7,8" />
+                                <field name="extra_lang_5" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 5" description="" showon="num_langs:5,6,7,8" />
+                                <field name="extra_lang_6" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 6" description="" showon="num_langs:6,7,8" />
+                                <field name="extra_lang_7" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 7" description="" showon="num_langs:7,8" />
+                                <field name="extra_lang_8" type="language" client="site" default="en-GB" label="AMPZ_EXTRA_LANG, 8" description="" showon="num_langs:8" />
+                                <field name="callout_language_end" type="callout" end="1" />
+                                <field name="callout_cache_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_CACHE_SETTINGS" />
+                                <field name="note_cache" type="note4" text="AMPZ_CACHE_NOTE" />
+                                <field name="cache_lifetime" type="text" label="AMPZ_CACHE_MIN" default="60" description="" filter="integer" />
+                                <field name="callout_cache_end" type="callout" end="1" />
+
+                                <field name="callout_open_new_tab_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_CLICK_SETTINGS" />
+                                <field name="note_open_new_tab" type="note4" text="AMPZ_OPEN_TAB_NOTE" />
+                                <field name="open_new_tab" type="rh_fancycheckbox" label="AMPZ_OPEN_TAB" class="labelauty_icon" description="AMPZ_OPEN_TAB_DESC" value="1" />
+                                <field name="callout_open_new_tab_end" type="callout" end="1" />
+
+                                <field name="callout_shorten_urls_start" type="callout" class="bs-callout-primary" start="1" label="Shorten Url Settings" />
+                                <field name="note_shorten_url" type="note4" text="Ampz can shorten urls with the Bitly service. Although not absolutely necessary since the social networks shorten them themselves, but for engaging customers this might be useful and also for urls containing e.g. Greek characters." />
+                                <field name="shorten_urls" type="rh_fancycheckbox" value="1" label="Shorten URLs with bit.ly" class="labelauty_icon" description="Shorten the URLs with the bit.ly service." />
+                                <field name="note_shorten_url_api" type="note4" text="AMPZ_BITLY_API" />
+                                <field name="shorten_urls_api_key" type="text" label="Bit.ly Access token" description="Enter your Bit.ky Access token" />
+                                <field name="callout_shorten_urls_end" type="callout" end="1" />
+
+                                <!-- <field name="callout_http_only_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_HTTP_ONLY_SETTINGS" />
+                                <field name="note_http_only" type="note4" text="AMPZ_HTTP_ONLY_NOTE" />
+                                <field name="http_only" type="rh_fancycheckbox" label="AMPZ_HTTP_ONLY" class="labelauty_icon" value="1" />
+                                <field name="callout_http_only_end" type="callout" end="1" /> -->
+
+                                <field name="callout_rtl_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_RTL_SETTINGS" />
+                                <field name="note_rtl" type="note4" text="AMPZ_RTL_NOTE" />
+                                <field name="rtl" type="rh_fancycheckbox" label="AMPZ_RTL" class="labelauty_icon" value="1" />
+                                <field name="callout_rtl_end" type="callout" end="1" />
+
+                                <field name="callout_support_author_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_SUPPORT_AUTHOR_SETTINGS" />
+                                <field name="note_disable_support_author" type="note4" text="AMPZ_DISABLE_SUPPORT_NOTE" />
+                                <field name="disable_support_author" type="rh_fancycheckbox" label="AMPZ_DISABLE_SUPPORT" class="labelauty_icon" description="AMPZ_DISABLE_SUPPORT_DESC" value="1" />  />
+                                <field name="callout_support_author_end" type="callout" end="1" />
+
+                                <field name="callout_advanced_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_ADVANCED_SETTINGS" />
+                                <field name="note_max_list_count" type="note4" text="AMPZ_MAX_LIST_COUNT_NOTE" />
+                                <field name="max_list_count" type="text" label="AMPZ_MAX_LIST_COUNT" default="1000" />
+                                <field name="callout_advanced_end" type="callout" end="1" />
+
+                        <field name="tab5_end" type="rh_tab" end="1" />
+
+                        <field name="tab6_start" type="rh_tab" id="about"   start="1"   />
+                            <field name="about_ampz" type="about"  class="bs-callout-primary" />
+                        <field name="tab6_end" type="rh_tab" end="1" />
+
+                        <field name="tab7_start" type="rh_tab" id="updates" title="AMPZ_UPDATES_SETTINGS" doclink="https://docs.roosterz.nl/ampz/automatic_updates" start="1" />
+                                <field name="callout_updates_start" type="callout" class="bs-callout-primary" start="1" label="AMPZ_UPDATES_SETTINGS" />
+                                <field name="note_updates" type="note4" text="AMPZ_DOWNLOAD_ID_DESC" />
+                                <field name="dlid" type="text" label="Download ID" default="" description="AMPZ_DOWNLOAD_ID_DESC" />
+                                <field name="callout_updates_end" type="callout" end="1" />
+                        <field name="tab7_end" type="rh_tab" end="1" />
+
+                    <field name="side_right_end" type="rh_side" class="rh_right-side" end="1" />
+                <field name="wrapper_end" type="rh_wrapper" end="1" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

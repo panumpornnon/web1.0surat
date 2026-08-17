@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.7" group="system" method="upgrade" >
+	<name>PLG_SYSTEM_DJACCESSIBILITY</name>
+	<author>DJ-Extensions.com</author>
+	<authorEmail>contact@dj-extensions.com</authorEmail>
+	<authorUrl>https://dj-extensions.com</authorUrl>
+	<creationDate>17.01.2022</creationDate>
+	<copyright>Copyright (C) 2013-2021 DJ-Extensions.com, All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses GNU/GPL</license>
+	<version>1.02</version>
+	<description>PLG_DJACCESSIBILITY_DESCRIPTION</description>
+	<files>
+		<filename plugin="djaccessibility">djaccessibility.php</filename>
+		<folder>fields</folder>
+		<folder>helpers</folder>
+		<folder>language</folder>
+		<folder>module</folder>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/djaccessibility/fields">
+			<fieldset name="basic" label="PLG_DJACCESSIBILITY_SETTINGS">
+				<field name="updater" type="djupdater" extension_name="PLG_DJACCESSIBILITY" extension="djaccessibility" label="PLG_DJACCESSIBILITY_UPDATER" />
+
+				<field type="djspacer" class="djinfo" label="PLG_DJACCESSIBILITY_YOOTHEME_INFO" target="yootheme" alert_type="warning" />
+
+				<field name="djacc_position" type="list" default="sticky" label="PLG_DJACCESSIBILITY_FIELD_POSITION" description="PLG_DJACCESSIBILITY_FIELD_POSITION_DESC">
+					<option value="sticky">PLG_DJACCESSIBILITY_OPT_STICKY</option>
+					<option value="custom">PLG_DJACCESSIBILITY_OPT_CUSTOM</option>
+				</field>
+
+				<field name="djacc_layout" type="list" default="popup" label="PLG_DJACCESSIBILITY_FIELD_LAYOUT">
+					<option value="popup">PLG_DJACCESSIBILITY_OPT_POPUP</option>
+					<option value="toolbar">PLG_DJACCESSIBILITY_OPT_TOOLBAR</option>
+				</field>
+
+				<field name="djacc_style" type="list" default="dark" label="PLG_DJACCESSIBILITY_FIELD_STYLE">
+					<option value="dark">PLG_DJACCESSIBILITY_OPT_DARK</option>
+					<option value="light">PLG_DJACCESSIBILITY_OPT_LIGHT</option>
+				</field>
+
+				<field name="djacc_direction" type="list" default="top left" label="PLG_DJACCESSIBILITY_FIELD_DIRECTION" description="PLG_DJACCESSIBILITY_FIELD_DIRECTION_DESC" showon="djacc_layout:popup[AND]djacc_position:custom">
+					<option value="top center">PLG_DJACCESSIBILITY_OPT_DOWN</option>
+					<option value="top right">PLG_DJACCESSIBILITY_OPT_DOWN_LEFT</option>
+					<option value="top left">PLG_DJACCESSIBILITY_OPT_DOWN_RIGHT</option>
+					<option value="center left">PLG_DJACCESSIBILITY_OPT_LEFT</option>
+					<option value="center right">PLG_DJACCESSIBILITY_OPT_RIGHT</option>
+					<option value="bottom center">PLG_DJACCESSIBILITY_OPT_UP</option>
+					<option value="bottom right">PLG_DJACCESSIBILITY_OPT_UP_LEFT</option>
+					<option value="bottom left">PLG_DJACCESSIBILITY_OPT_UP_RIGHT</option>
+				</field>
+
+				<field name="djacc_align_popup" type="list" default="top right" label="PLG_DJACCESSIBILITY_FIELD_ALIGN" showon="djacc_layout:popup[AND]djacc_position:sticky">
+					<option value="top center">PLG_DJACCESSIBILITY_OPT_TOP</option>
+					<option value="top left">PLG_DJACCESSIBILITY_OPT_TOP_LEFT</option>
+					<option value="top right">PLG_DJACCESSIBILITY_OPT_TOP_RIGHT</option>
+					<option value="center left">PLG_DJACCESSIBILITY_OPT_LEFT</option>
+					<option value="center right">PLG_DJACCESSIBILITY_OPT_RIGHT</option>
+					<option value="bottom center">PLG_DJACCESSIBILITY_OPT_BOTTOM</option>
+					<option value="bottom left">PLG_DJACCESSIBILITY_OPT_BOTTOM_LEFT</option>
+					<option value="bottom right">PLG_DJACCESSIBILITY_OPT_BOTTOM_RIGHT</option>
+				</field>
+
+				<field name="djacc_align_toolbar" type="list" default="top right" label="PLG_DJACCESSIBILITY_FIELD_ALIGN" showon="djacc_layout:toolbar[AND]djacc_position:sticky">
+					<option value="top center">PLG_DJACCESSIBILITY_OPT_TOP</option>
+					<option value="center left">PLG_DJACCESSIBILITY_OPT_LEFT</option>
+					<option value="center right">PLG_DJACCESSIBILITY_OPT_RIGHT</option>
+					<option value="bottom center">PLG_DJACCESSIBILITY_OPT_BOTTOM</option>
+				</field>
+
+				<field name="djacc_align_mobile_ch" type="checkbox" label="PLG_DJACCESSIBILITY_FIELD_ALIGN_MOBILE_CH" value="1" showon="djacc_layout:popup[AND]djacc_position:sticky"/>
+
+				<field name="djacc_align_mobile" type="list" default="bottom right" label="PLG_DJACCESSIBILITY_FIELD_ALIGN_MOBILE" description="PLG_DJACCESSIBILITY_FIELD_ALIGN_MOBILE_DESC" showon="djacc_layout:popup[AND]djacc_position:sticky[AND]djacc_align_mobile_ch:1">
+					<option value="top center">PLG_DJACCESSIBILITY_OPT_TOP</option>
+					<option value="top left">PLG_DJACCESSIBILITY_OPT_TOP_LEFT</option>
+					<option value="top right">PLG_DJACCESSIBILITY_OPT_TOP_RIGHT</option>
+					<option value="center left">PLG_DJACCESSIBILITY_OPT_LEFT</option>
+					<option value="center right">PLG_DJACCESSIBILITY_OPT_RIGHT</option>
+					<option value="bottom center">PLG_DJACCESSIBILITY_OPT_BOTTOM</option>
+					<option value="bottom left">PLG_DJACCESSIBILITY_OPT_BOTTOM_LEFT</option>
+					<option value="bottom right">PLG_DJACCESSIBILITY_OPT_BOTTOM_RIGHT</option>
+				</field>
+
+				<field name="djacc_space" type="checkbox" label="PLG_DJACCESSIBILITY_FIELD_SPACE" description="PLG_DJACCESSIBILITY_FIELD_SPACE_DESC" default="1" value="1" showon="djacc_layout:toolbar[AND]djacc_position:sticky"/>
+
+				<field name="djacc_voff_popup" type="number" default="20" label="PLG_DJACCESSIBILITY_FIELD_VOFF" description="PLG_DJACCESSIBILITY_FIELD_VOFF_DESC" step="1" showon="djacc_layout:popup[AND]djacc_position:sticky" />
+				<field name="djacc_hoff_popup" type="number" default="20" label="PLG_DJACCESSIBILITY_FIELD_HOFF" description="PLG_DJACCESSIBILITY_FIELD_HOFF_DESC" step="1" showon="djacc_layout:popup[AND]djacc_position:sticky" />
+
+				<field name="djacc_voff_toolbar" type="number" default="0" label="PLG_DJACCESSIBILITY_FIELD_VOFF" description="PLG_DJACCESSIBILITY_FIELD_VOFF_DESC" step="1" showon="djacc_layout:toolbar[AND]djacc_position:sticky" />
+				<field name="djacc_hoff_toolbar" type="number" default="0" label="PLG_DJACCESSIBILITY_FIELD_HOFF" description="PLG_DJACCESSIBILITY_FIELD_HOFF_DESC" step="1" showon="djacc_layout:toolbar[AND]djacc_position:sticky" />
+
+				<field name="djacc_image" type="media" default="" label="PLG_DJACCESSIBILITY_FIELD_IMAGE" showon="djacc_layout:popup" />
+
+				<field name="djacc_width" type="number" default="48" label="PLG_DJACCESSIBILITY_FIELD_WIDTH" step="1" showon="djacc_layout:popup[AND]djacc_image!:" />
+				<field name="djacc_height" type="number" default="48" label="PLG_DJACCESSIBILITY_FIELD_HEIGHT" step="1" showon="djacc_layout:popup[AND]djacc_image!:" />
+
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
